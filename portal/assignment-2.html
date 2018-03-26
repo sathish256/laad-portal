@@ -1,0 +1,1367 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+<!-- FOR PRODUCTION BEGIN -->
+    <link   type="image/x-icon" href="/portal/img/favicon.ico"                   rel="shortcut icon" />
+    <link   type="text/css"     href="/portal/img/LAAD/css/jquery-ui.css"        rel="stylesheet" />
+    <style  type="text/css">   @import url("/portal/img/LAAD/css/custom-styles.css");</style>
+
+<!-- LL_WEBREPORT_IF WRPrintView IS **Undefined constant**  -->
+    <link   type="text/css"     href="/portal/img/LAAD/css/default-clear.css" rel="stylesheet" class="colorSwitch" />
+<!-- LL_WEBREPORT_ENDIF  -->
+
+    <link   type="text/css"     href="/portal/img/LAAD/css/font-awesome.min.css" rel="stylesheet" />
+    <link   type="text/css"     href="/portal/img/LAAD/css/print.css"           rel="stylesheet" media="print" />
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/laad-application.js"></script>
+    <!-- FOR PRODUCTION END -->
+        
+    <!-- FOR LOCAL BEGIN 
+    <link   type="image/x-icon" href="../support/favicon.ico"                   rel="shortcut icon" />
+    <link   type="text/css"     href="../support/LAAD/css/jquery-ui.css"        rel="stylesheet" />
+    <style  type="text/css">   @import url("../support/LAAD/css/custom-styles.css");</style>
+    <link   type="text/css"     href="../support/LAAD/css/default-clear.css"    rel="stylesheet" class="colorSwitch" />
+    <link   type="text/css"     href="../support/LAAD/css/print-view.css"       rel="stylesheet" />
+    <link   type="text/css"     href="../support/LAAD/css/print.css"            rel="stylesheet" media="print" />
+    <link   type="text/css"     href="../support/LAAD/css/font-awesome.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="../support/LAAD/js/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="../support/LAAD/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../support/LAAD/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../support/LAAD/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="../support/LAAD/js/laad-application.js"></script>
+    <!-- FOR LOCAL END -->
+
+    <title>Employee Account | Latin American Agribusiness Development Corporation (LAAD)</title>
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" media="all" />
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="/portal/css/portal.css" media="all" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
+    <script type="text/javascript" LANGUAGE="JavaScript">
+      <!--Field Name Fields #Different# for Proposal and Disbursement-->
+      var field_Status              = "#_1_1_7_1";
+      var field_Action              = "#_1_1_8_1";
+      var field_Subaction           = "#_1_1_173_1";
+      var field_Action_Date         = "#_1_1_6_1";
+      var field_Initiation_Date     = "#_1_1_5_1";
+      var field_Send_To_Status      = "#_1_1_184_1";
+      var field_BP_Name             = "#_1_1_27_1";
+      var field_BP_Number           = "#_1_1_31_1";
+      var field_BP_Workspace_ID     = "#_1_1_174_1";
+      var field_BP_Workspace_Path   = "#_1_1_177_1";
+      var field_Loan_Number         = "";
+      var field_Field_Office        = "#_1_1_46_1";
+      var field_Regional_VP         = "#_1_1_216_1";
+      var field_Country_Manager     = "#_1_1_217_1";
+      var field_Assistant_Manager   = "#_1_1_218_1";
+      var field_Field_Office_Admin  = "#_1_1_219_1";
+      var field_LL_UserID           = "#LL_UserID";
+      var field_Comments            = "#_1_1_160_1";
+      var field_Denials             = "#_1_1_60_1";
+      var field_Child_Cancelled     = "#_1_1_203_1";
+      var field_Child_Comments      = "#_1_1_211_1";
+      var field_Child_Denials       = "#_1_1_212_1";
+      var field_Number_Of_Loans     = "#_1_1_181_1";
+      var field_Total_Exposure      = "#_1_1_52_1";
+      var field_Group_Exposure      = "#_1_1_53_1";
+      var field_Collect_Signature   = "#_1_1_137_1";
+      var field_SeniorAMLSignature  = "#_1_1_178_1";
+      var field_CEOConsideration    = "#_1_1_190_1";
+      var field_CEOOverride         = "#_1_1_197_1";
+      var field_RVP                 = "#_1_1_98_1";
+      var field_CEOCFO              = "#_1_1_104_1";
+      var field_CreditICC           = "#_1_1_110_1";
+      var field_Board               = "#_1_1_131_1";
+      var field_ImportantComment    = "#_1_1_161_1";
+      var field_Referrals           = ["#_1_1_188_1_189_1", "#_1_1_188_2_189_1", "#_1_1_188_3_189_1"];
+   
+      /* FOR PRODUCTION BEGIN */
+
+      var screenFormVersion = "20170228";
+      var appSupportPath = "/portal/img/";
+      var userIsPrintViewIT = "FALSE"; //"TRUE";
+
+      <!--Environment Fields -->
+      var workflowID                   = "3814764";
+      var cgiPath                      = "/otcs/llisapi.dll";
+      var laadUserName                 = "Robert";
+      var businessPartnerCategoryID    = "115204";
+      var moveFilesPopupWRID           = "570636";
+      var findAttachmentsWRID          = "632576";
+      var retrieveFieldOfficeDataWRID  = "2951633";
+      var listBPsByCountryWRID         = "729248";
+      var findBPDataWRID               = "730483";
+      var renderTreeWRID               = "**Undefined constant**";
+      var findWorkspacePathByID        = "826006";
+      var businessWorkspaceWRID        = "762760";
+      var folderListAllDocumentsWRID   = "1018374";
+      var laadLoanDocCatID             = "110232";
+      var getICCLoanInfoWRID           = "954296";
+      var attachmentSubmitWait         = "";
+      var attachmentsFolderID          = "";
+      var attachmentMessage            = "<p>Documents reside in the Workflow Attachments folders. (<a href=\"javascript:findAttachments()\">Click here to check again.</a>)</p>";
+      var bpAutocompleteArray          = [];
+      var approvalType                 = "";
+      var parentWorkflowID             = "3243653"; // -3243653- 
+      var firstContactDate             = "Wed, 12 Apr 2017 13:36:54 GMT"; //parent
+      var savedImportantCommentFlag    = "";
+
+      <!--PrintView Setup #Different# for Proposal and Disbursement-->
+ 
+      var formTitleTag = "AML Recommendation";
+      var formStatusTag = "AML Recommendation";
+
+
+      <!--Initial State Setup #Different# for Proposal and Disbursement-->
+      if (!formStatusTag) {
+        formTitleTag = "First Contact";
+        formStatusTag = "First Contact";   
+      }
+      /* FOR PRODUCTION END */
+
+      /* FOR TESTING BEGIN
+      var appSupportPath            = "../support/";
+      var userIsPrintViewIT         = "FALSE";
+      var formTitleTag              = "Approve Final Changes";
+      var formStatusTag             = formTitleTag;
+      var approvalType              = "RVP"; //RVP | CEO/CFO | ICC | Board
+      /* Initial State Setup #Different# for Proposal and Disbursement-->
+      // First Contact
+      // Create Proposal |  Proposal | VP Consideration | CEO-CFO Consideration | Legal Review | Operations Review
+      // Credit Recommendation | Credit Recommendation Field Office Question  | Credit Recommendation Legal | Credit Recommendation Hold | Operations Review
+      // AML Recommendation | AML Senior Recommendation | AML Recommendation Field Office Question  | AML Recommendation Legal | AML Recommendation Hold | Operations Review
+      // SEMS Recommendation | SEMS Recommendation Field Office Question  | SEMS Recommendation Legal | SEMS Recommendation Hold | Operations Review
+      // RVP Approval | CEO-CFO Approval | ICC Approval | Board Approval 
+      // Credit Finalization | Approve Final Changes | Collect Remaining Documents
+      /* FOR TESTING END */
+
+      /* Field Name Fields #Different# for Proposal and Disbursement*/
+      var formStatus = (formStatusTag == "") ? "First Contact" : formStatusTag ;
+      var markDirty = (typeof markDirty === 'function') ? markDirty : Function() ;
+
+      $(document).ready(function () {
+        
+        if(formStatusTag != "Print View"){
+          initColorChanger();
+        }
+      
+        // Local Variable
+        var formStatusFn = formStatus;
+        var initCustomFn = Function();
+        var activeFormStep = "";
+
+        <!--Field Name Fields #Different# for Proposal and Disbursement-->
+        /* If the status is not blank, then set the page title and body title to the Status. Otherwise, set them to First Contact */
+        document.title = formStatus;
+        $("#bodyTitle").html("<h2>"+formTitleTag+"</h2><div class='loginarea'>Logged in as: Robert Kraai</div>");
+        $(field_Status).val(formStatus);
+
+        // Bind form status to create an anonymous function
+        initCustomFn = window["init"+formStatusFn.replace(/-+|\s+/g, '')];
+
+        try {
+          //Block of code to try
+          setAllProposalDefaults();
+          initCustomFn();
+        } catch(err) {
+          //Block of code to handle errors
+          alert("There was an unexpected error:  Please contact the system administrator.")
+          log("Initialize Section: Catch Error: " + err + ":" + err.fileName + ":" + err.lineNumber);
+          initLoanPrintView();
+        }
+      });
+    </script>
+
+
+  
+  </head>
+
+<body class="page">
+  <div class="employee log">
+   <!-- language navigation --> 
+    <div class="lang-nav">
+      <div class="container-fluid">
+          <div class="logo-inner col-lg-4">
+            <a href="/"><img src="/images/logo-white.png" border="0"></a>
+          </div>
+        <div class="col-lg-8"><h1>AML Recommendation</h1></div>
+      </div>
+    </div>
+      <!-- main navigation -->
+    <div class="outer-nav">
+      <div class="nav container">
+        <ul class="full">
+          <li><a class="active" href="/" title="Laad Home Page">Home</a></li>
+          <li><a href="/who-we-are.html" title="Who We Are">Who We Are</a> </a>
+            <ul>
+              <li><a href="/who-we-are.html" title="Executive Team">Executive Team</a></li>
+              <li><a href="/regional-country-offices.html" title="Regional and Country Offices">Regional and Country Offices</a></li>
+              <li><a href="/shareholders.html" title="Shareholders and Directors">Shareholders</a></li>
+            </ul>
+          </li>
+          <li><a href="/our-mission.html" title="Our Mission">Our Mission</a>
+            <ul>
+              <li><a href="/letter-to-shareholders.html" title="Letter to Shareholders">Letter to Shareholders</a></li>
+              <li><a href="/letter-from-the-president.html" title="Letter From LAAD’s President">Letter From LAAD’s President</a></li>
+              <li><a href="/environmental-and-social-responsibility.html" title="Environmental and Social Responsibility">Environmental and Social Responsibility</a></li>
+              <li><a href="/special-initiatives.html" title="Special Initiatives">Special Initiatives</a></li>
+            </ul>
+          </li>
+          <li><a href="/working-with-laad.html" title="Working With LAAD">Working With LAAD</a>
+            <ul>
+              <li><a href="/working-with-laad.html" title="Approval Process">Approval Process</a></li>
+              <li><a href="/qa-list.html" title="Q&amp;A List">Q&amp;A List</a></li>
+              <li><a href="/projects.html" title="Projects">Projects</a></li>
+            </ul>
+          </li>
+          <li><a href="/loan-portfolio.html" title="Financial Highlights">Financial Highlights</a>
+            <ul>
+              <li><a href="/loan-portfolio.html" title="Loan Portfolio">Loan Portfolio</a></li>
+              <li><a href="/funding.html" title="Funding">Funding</a></li>
+              <li><a href="/disbursements.html" title="Disbursements">Disbursements</a></li>
+              <li><a href="/developmental-impact.html" title="Developmental Impact">Developmental Impact</a></li>
+              <li><a href="/download-annual-report.html" title="Annual Reports and Brochures">Annual Reports and Brochures</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact-us.html" title="Contact Us">Contact Us</a></li>
+          <li class="login"><a href="/account.html" title="Account">Hello Martina</a>
+           <ul>
+              <li><a href="#" title="Edit Profile">Change Password</a></li>
+              <li><a href="#" title="Sign Out">Sign Out</a></li>
+            </ul></li>
+        </ul>
+      </div>
+      <div class="caret"><a href="#menu" class="menu-trigger">Close</a></div>
+    </div>
+
+  <div class="phone">
+          <a href="tel:3054451341">+ 1 (305) 445-1341</a>
+  </div>
+<!-- BEGIN Header area -->
+
+  <header>
+
+    <div class="container inner-header">
+      <h2 class="site-name">
+        Latin American Agribusiness Development Corporation S.A.
+      </h2>
+      <h2 class="slogan">
+        Local Knowledge    Focus    Flexibility
+      </h2>
+    </div>
+  </header>
+<!-- END Header area -->
+<div class="clearfix"></div>
+
+    <div class="page-description">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- <div class="account-hdr col-lg-12 col-md-12 col-xs-12">
+            
+            <div class="acc-number col-lg-12"><strong>Account</strong> #005456-4531
+            </div>
+          </div>
+ -->
+
+    <form id="laadform" class="laadform-solid-orange" style="" name="myForm" action="/otcs/llisapi.dll" enctype="multipart/form-data" method="post">
+
+      <!-- Form processing fields -->
+      <input type="hidden" id="func"              name="func"               value="form.dispatch" />
+      <input type="hidden" id="LL_FUNC_VALUES"    name="LL_FUNC_VALUES"     value="A<1,?,'Func'='formwf.saveform','LL_Editable'=true,'LL_FormID'='1','LL_FormViewID'=707655,'LL_ID'=3814764,'LL_NextURL'='/otcs/llisapi.dll?func=work.taskdone&workid=3814764&subworkid=3814764&taskid=1&xAction=save&paneindex=1&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3DPersonal%2EAssignments','LL_SubWorkID'=3814764,'LL_TaskID'=1,'LL_TemplateID'=707299,'LL_TemplateVersion'=105,'LL_WorkID'=3814764>" />
+      <input type="hidden" id="LL_AttrFieldName"  name="LL_AttrFieldName"   value="" />
+      <input type="hidden" id="LL_AttrFieldIndex" name="LL_AttrFieldIndex"  value="" />
+      <input type="hidden" id="LL_WFATTURL"       name="LL_WFATTURL"        value="" />
+
+      <!-- user data hidden fields -->
+      <input type="hidden" name="LL_UserID"         id="LL_UserID"        value="114232" />
+      <input type="hidden" name="LL_UserFullName"   id="LL_UserFullName"  value="Robert Kraai" />
+      <input type="hidden" name="LL_UserSavedName"  id="LL_UserSavedName" value="Robert Kraai" />
+      
+      <!-- Status and Action fields -->
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_5_1"           title="First Contact Date" id="_1_1_5_1"           value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_7_1"            title="Status"            id="_1_1_7_1"           value="AML Recommendation" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_8_1"            title="Action"            id="_1_1_8_1"           value="Recommendation" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_173_1"          title="Subaction"         id="_1_1_173_1"         value="" /> <!-- Initialized to blank. -->
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_3_1_ID"         title="Action UID"        id="_1_1_3_1_ID"        value="114232">
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_3_1_SavedName"  title="Action UID"        id="_1_1_3_1_SavedName" value="Robert Kraai">
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_3_1_Name"       title="Action UID"        id="_1_1_3_1_Name"      value="Robert Kraai">
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_6_1"            title="Action Date"       id="_1_1_6_1"           value="">
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_184_1"          title="Send To Assignment" id="_1_1_184_1"        value="" /> <!-- I don't think this is used. -->
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_203_1"          title="Child Cancelled"   id="_1_1_203_1"         value="" />
+
+      <!-- Field Office Fields -->
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_47_1"            title="Field Office Email" id="_1_1_47_1"            value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_216_1_ID"        title="Regional VP"        id="_1_1_216_1_ID"        value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_216_1_SavedName" title="Regional VP"        id="_1_1_216_1_SavedName" value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_216_1_Name"      title="Regional VP"        id="_1_1_216_1_Name"      value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_217_1_ID"        title="Country Manager"    id="_1_1_217_1_ID"        value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_217_1_SavedName" title="Country Manager"    id="_1_1_217_1_SavedName" value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_217_1_Name"      title="Country Manager"    id="_1_1_217_1_Name"      value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_218_1_ID"        title="Assistant Manager"  id="_1_1_218_1_ID"        value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_218_1_SavedName" title="Assistant Manager"  id="_1_1_218_1_SavedName" value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_218_1_Name"      title="Assistant Manager"  id="_1_1_218_1_Name"      value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_219_1_ID"        title="Field Office Admin" id="_1_1_219_1_ID"        value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_219_1_SavedName" title="Field Office Admin" id="_1_1_219_1_SavedName" value="" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_219_1_Name"      title="Field Office Admin" id="_1_1_219_1_Name"      value="" />
+
+      <!-- Business Partner Fields -->
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_31_1"           title="BP Number"          id="_1_1_31_1"         value="0000503067">
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="LL_SavedBPNumber"    title="Saved BP Number"    id="LL_SavedBPNumber"  value="0000503067" />
+	  
+      <!-- Workspace Fields -->
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="LL_BPWorkspaceParent" title="BP Workspace Parent" id="LL_BPWorkspaceParent" value="150940" />
+      <input class="valueEditable" onChange="markDirty();" type="hidden" name="_1_1_174_1"           title="BP Workspace ID"     id="_1_1_174_1"           value="509693">
+      
+      <!-- Multivalue Loan Fields -->
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_181_1"          title="Number Of Loans"    id="_1_1_181_1"        value="0" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_1_45_1"      title="New of Existing"    id="_1_1_38_1_45_1"    value="E" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_1_40_1"      title="Loan Type"          id="_1_1_38_1_40_1"    value="Term Loan" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_1_41_1"      title="Loan Amount"        id="_1_1_38_1_41_1"    value="1.23" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_1_42_1"      title="Change of Terms"    id="_1_1_38_1_42_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_1_182_1"     title="Approved"           id="_1_1_38_1_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_2_45_1"      title="New of Existing"    id="_1_1_38_2_45_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_2_40_1"      title="Loan Type"          id="_1_1_38_2_40_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_2_41_1"      title="Loan Amount"        id="_1_1_38_2_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_2_42_1"      title="Change of Terms"    id="_1_1_38_2_42_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_2_182_1"     title="Approved"           id="_1_1_38_2_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_3_45_1"      title="New of Existing"    id="_1_1_38_3_45_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_3_40_1"      title="Loan Type"          id="_1_1_38_3_40_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_3_41_1"      title="Loan Amount"        id="_1_1_38_3_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_3_42_1"      title="Change of Terms"    id="_1_1_38_3_42_1"    value="?" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_3_182_1"     title="Approved"           id="_1_1_38_3_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_4_45_1"      title="New of Existing"    id="_1_1_38_4_45_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_4_40_1"      title="Loan Type"          id="_1_1_38_4_40_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_4_41_1"      title="Loan Amount"        id="_1_1_38_4_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_4_42_1"      title="Change of Terms"    id="_1_1_38_4_42_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_4_182_1"     title="Approved"           id="_1_1_38_4_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_5_45_1"      title="New of Existing"    id="_1_1_38_5_45_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_5_40_1"      title="Loan Type"          id="_1_1_38_5_40_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_5_41_1"      title="Loan Amount"        id="_1_1_38_5_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_5_42_1"      title="Change of Terms"    id="_1_1_38_5_42_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_5_182_1"     title="Approved"           id="_1_1_38_5_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_6_45_1"      title="New of Existing"    id="_1_1_38_6_45_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_6_40_1"      title="Loan Type"          id="_1_1_38_6_40_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_6_41_1"      title="Loan Amount"        id="_1_1_38_6_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_6_42_1"      title="Change of Terms"    id="_1_1_38_6_42_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_6_182_1"     title="Approved"           id="_1_1_38_6_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_7_45_1"      title="New of Existing"    id="_1_1_38_7_45_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_7_40_1"      title="Loan Type"          id="_1_1_38_7_40_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_7_41_1"      title="Loan Amount"        id="_1_1_38_7_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_7_42_1"      title="Change of Terms"    id="_1_1_38_7_42_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_7_182_1"     title="Approved"           id="_1_1_38_7_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_8_45_1"      title="New of Existing"    id="_1_1_38_8_45_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_8_40_1"      title="Loan Type"          id="_1_1_38_8_40_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_8_41_1"      title="Loan Amount"        id="_1_1_38_8_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_8_42_1"      title="Change of Terms"    id="_1_1_38_8_42_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_8_182_1"     title="Approved"           id="_1_1_38_8_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_9_45_1"      title="New of Existing"    id="_1_1_38_9_45_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_9_40_1"      title="Loan Type"          id="_1_1_38_9_40_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_9_41_1"      title="Loan Amount"        id="_1_1_38_9_41_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_9_42_1"      title="Change of Terms"    id="_1_1_38_9_42_1"    value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_9_182_1"     title="Approved"           id="_1_1_38_9_182_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_10_45_1"     title="New of Existing"    id="_1_1_38_10_45_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_10_40_1"     title="Loan Type"          id="_1_1_38_10_40_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_10_41_1"     title="Loan Amount"        id="_1_1_38_10_41_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_10_42_1"     title="Change of Terms"    id="_1_1_38_10_42_1"   value="" />
+      <input class="valueEditable" onchange="markDirty();" type="hidden" name="_1_1_38_10_182_1"    title="Approved"           id="_1_1_38_10_182_1"  value="" />
+  
+      <!-- Signature Section Checkboxes -->
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_62_1"  title="Create Proposal Completed"           id="_1_1_62_1"  value="1" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_65_1"  title="Proposal Completed"                  id="_1_1_65_1"  value="1" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_68_1"  title="VP Consideration Completed"          id="_1_1_68_1"  value="1" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_190_1" title="CEO or CFO Consideration Completed"     id="_1_1_190_1" value="" />
+
+<!--As Child-->
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_80_1"  title="Credit Recommendation Completed"          id="_1_1_80_1"  value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_213_1" title="AML Recommendation Completed"             id="_1_1_213_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_178_1" title="Senior AML Recommendation Completed"      id="_1_1_178_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_92_1"  title="SEMS Recommendation Completed"            id="_1_1_92_1"  value="" />
+
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_197_1" title="CEO Override Completed"              id="_1_1_197_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_98_1"  title="RVP Completed"                       id="_1_1_98_1"  value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_104_1"         title="CEO or CFO Approval Completed"          id="_1_1_104_1"       value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_110_1"         title="ICC Credit Completed"                id="_1_1_110_1"       value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_163_1_165_1"   title="ICC CEO Completed"                   id="_1_1_163_1_165_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_163_2_165_1"   title="ICC CFO Completed"                   id="_1_1_163_2_165_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_163_3_165_1"   title="ICC VP Legal Completed"              id="_1_1_163_3_165_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_163_4_165_1"   title="ICC VP Region 1 Completed"           id="_1_1_163_4_165_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_163_5_165_1"   title="ICC VP Region 2 Completed"           id="_1_1_163_5_165_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_163_6_165_1"   title="ICC VP Region 3 Completed"           id="_1_1_163_6_165_1" value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_131_1"         title="Board Completed"                     id="_1_1_131_1"       value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_134_1"         title="Credit Finalization Completed"       id="_1_1_134_1"       value="" />
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_137_1"         title="Collect Remaining Documents"         id="_1_1_137_1"       value="" />
+
+      <!-- Referring Steps -->
+      <input class="valueEditable"                onchange="markDirty();" type="hidden" name="_1_1_188_1_189_1"   title="Referring Step 1"                    id="_1_1_188_1_189_1"   value="?" />
+      <input class="valueEditable"                onchange="markDirty();" type="hidden" name="_1_1_188_2_189_1"   title="Referring Step 2"                    id="_1_1_188_2_189_1"   value="?" />
+      <input class="valueEditable"                onchange="markDirty();" type="hidden" name="_1_1_188_3_189_1"   title="Referring Step 3"                    id="_1_1_188_3_189_1"   value="?" />
+
+
+      <!-- Comment Fields -->
+      <input class="valueEditable noCheckDisplay" onChange="markDirty();" type="hidden" name="_1_1_161_1" id="_1_1_161_1" value="" />
+
+      <textarea class="valueEditable medium" onChange="markDirty();" name="_1_1_160_1" id="_1_1_160_1" wrap="soft" cols="20" rows="5" style="display:none"></textarea>
+      <textarea class="valueEditable medium" onChange="markDirty();" name="_1_1_60_1"  id="_1_1_60_1"  wrap="soft" cols="20" rows="5" style="display:none"></textarea>
+
+      <textarea class="valueEditable medium" onChange="markDirty();" name="_1_1_211_1"  id="_1_1_211_1"  wrap="soft" cols="20" rows="5" style="display:none"></textarea>
+      <textarea class="valueEditable medium" onChange="markDirty();" name="_1_1_212_1"  id="_1_1_212_1"  wrap="soft" cols="20" rows="5" style="display:none"></textarea>
+
+      <div id="PrintViewButtons" class="hide-new">
+        <div id="PrintViewPrintButton" class="print">
+          <input class="" type="button" name="Print" value="Print" onclick="print();" />
+        </div>
+        <div id="PrintViewEditButton" class="print">
+          <input class="" type="button" name="Edit" value="Edit" onclick="printEdit();" />
+        </div>
+        <div id="PrintViewCancelButton" class="print">
+          <input class="" type="button" name="Cancel" value="Cancel" onclick="printCancel();" />
+        </div>
+        <div id="PrintViewSubmitButton" class="print">
+          <input class="" type="button" name="Submit" value="Submit" onclick="printSubmit();" />
+        </div>
+      </div><!-- /PrintViewButtons -->
+
+      <!-- Body Title set when the page is initialized -->
+     
+      <div id="innerFormWrapper" class="center">
+
+      
+        <div id="asterisk" class="asterisk" tabindex=0 >* required</div>
+        <div class="clear"></div>
+
+        <!-- Error Message Holder -->
+        <div id="Messages_Section" class="hide-new"></div>
+
+        <!-- Section header with BP and Loan information -->
+        <div id="BP_And_Loan_Section" class="columnWrapper">
+
+          <div class="column column2">
+            <div id="Field_Office_Div" class="element-select" title="Field Office">
+              <label id="_1_1_46_1_Label" class="title"><span class="required">* </span>Field Office</label>
+              <div class="item-cont">
+                <select class="valueEditable selectMenu large required" required="required" id="_1_1_46_1" name="_1_1_46_1" title="Field Office" onchange="fieldOfficeSelected()" >
+                    
+<option value="">&ltSelect One&gt</option>
+<option value="?">?</option>
+<option value="Belize" SELECTED >Belize</option>
+<option value="Bolivia">Bolivia</option>
+<option value="Brazil">Brazil</option>
+<option value="Chile">Chile</option>
+<option value="Colombia">Colombia</option>
+<option value="Costa Rica">Costa Rica</option>
+<option value="Cuiaba">Cuiaba</option>
+<option value="Curico">Curico</option>
+<option value="Dominican Republic">Dominican Republic</option>
+<option value="Ecuador">Ecuador</option>
+<option value="El Salvador">El Salvador</option>
+<option value="Guatemala">Guatemala</option>
+<option value="Honduras">Honduras</option>
+<option value="Mexico">Mexico</option>
+<option value="Miami">Miami</option>
+<option value="Nicaragua">Nicaragua</option>
+<option value="Paraguay">Paraguay</option>
+<option value="Peru">Peru</option>
+<option value="Uruguay">Uruguay</option>
+
+                </select>
+                <span class="icon-place"></span>
+              </div>
+            </div><!-- /Field_Office_Div -->
+          </div><!-- /column2 --><span class="clearfix"></span>
+          <div class="column column2">
+            <div id="BP_Name_Div" class="element-select" title="BP Name">
+              <label id="_1_1_27_1_Label" class="title"><span class="required">* </span>BP Name</label>
+              <div class="item-cont">
+                  <div id="BP_Select_div">
+                    
+                    <input placeholder="BP Name" class="valueEditable large required hide-new" type="text" name="_1_1_27_1" title="BP Name" id="_1_1_27_1" value="0000503067 Test Today 3" size="32" maxlength="255" />
+                    <select class="valueEditable selectMenu large required" required="required" id="BP_Selector" name="BP_Selector" title="BP Name" onchange="newBPSelected();">
+                      
+                    </select>
+                    <span class="icon-place"></span>
+                  </div>
+              </div>
+            </div><!-- /BP_Name_Div -->
+          </div><!-- /column2 -->
+          <div class="clear"></div>
+        </div><!-- /BP_And_Loan_Section -->
+
+        <div id="Loan_Section">
+          <div class="element-separator">
+            <hr />
+          </div>
+          <h3>Loans <i class="fa fa-plus-square" aria-hidden="true" id="addLoanRow"></i></h3>
+          <div class="loan_labels">
+            <div class="expanderColumn">
+              <label id="New_Existing_Loan_Label" class="title">New/Existing</label>
+            </div>
+            <div class="expanderColumn">
+              <label id="Loan_Type_Label" class="title"><span class="required">* </span>Loan Type</label>
+            </div><!-- /column2 --><span class="clearfix"></span>
+            <div class="expanderColumn">
+              <label id="Amount_Label" class="title"><span class="required">* </span>Amount</label>
+            </div><!-- /column2 --><span class="clearfix"></span>
+            <div class="expanderColumn">
+              <label id="Change_Of_Terms_Label" class="title"><span class="required">* </span>Change Of Terms</label>
+            </div><!-- /column2 --><span class="clearfix"></span>
+            <div class="clear"></div>
+          </div>
+          <!-- expanding area only -->
+          <div id="ExpandingLoanDIV" class="fieldset">
+            <div class="expanderColumn">
+              <div id="NewExistingLoanDiv" class="element-input" title="New/Existing">
+                <div class="item-cont">
+                    <input type="radio" class="valueEditable" name="ExistingButton" value="N" >New
+                    <input type="radio" class="valueEditable" name="ExistingButton" value="E" >Existing
+                </div>
+              </div>
+            </div><!-- /NewExistingLoanDiv -->
+            <span class="clearfix"></span>
+            <div class="expanderColumn">
+              <div id="LoanTypeDiv" class="element-select" title="Loan Type">
+                <div class="item-cont">
+                  <div class="null">
+                    <span>
+                      <select class="valueEditable selectMenu large required" required="required" id="LoanType" name="LoanType" title="Loan Type" onchange="setLoanTypeOptions()">
+                        <option value="" SELECTED >&lt;Select One&gt;</option>
+                        <option value="Term Loan">Term Loan</option>
+                        <option value="Revolving Line">Revolving Line</option>
+                        <option value="Equity Investment">Equity Investment</option>
+                        <option value="Restructure">Restructure</option>
+                        <option value="Reschedule">Reschedule</option>
+                        <option value="Change of Terms">Change of Terms</option>
+                      </select>
+                      <span class="icon-place"></span>
+                    </span>
+                  </div>
+                </div>
+              </div><!-- /LoanTypeDiv -->
+            </div><!-- /column2 --><span class="clearfix"></span>
+            <div class="expanderColumn">
+              <div id="AmountDiv" class="element-money" title="Amount">
+                <div class="item-cont">
+                  <input class="valueEditable large required" type="text" name="LoanAmount" title="Amount" id="LoanAmount" size="32" maxlength="32" />
+                  <span class="icon-place"></span>
+                </div>
+              </div><!-- /AmountDiv -->
+            </div><!-- /column2 --><span class="clearfix"></span>
+            <div class="expanderColumn">
+              <div id="ChangeOfTermsDiv" class="element-input" title="Change Of Terms">
+                <div class="item-cont">
+                  <input class="valueEditable large required" type="text" name="ChangeOfTerms" title="Change of Terms" id="ChangeOfTerms" size="32" maxlength="32" />
+                  <span class="icon-place"></span>
+                </div>
+              </div><!-- /ChangeOfTermsDiv --> 
+            </div><!-- /column2 -->
+            <i class="fa fa-minus-square" aria-hidden="true" id="DeleteLoanRow" onClick="removeLoan(this)"></i>
+            <span class="clearfix"></span>
+            <div class="clear"></div>
+          </div><!-- /ExpandingLoanDIV-->
+        </div><!-- /Loan_Section -->
+
+
+        <div id="Info_Section" class="">
+          <div class="element-separator">
+            <hr />
+          </div>
+
+          <div class="element-textarea">
+            <div id="Product_Div" class="element-input" title="Product">
+              <label id="_1_1_58_1_Label" class="title"><span class="required">* </span>Product</label>
+              <div class="item-cont">
+                <input class="valueEditable large required" type="text" name="_1_1_58_1" title="Product" id="_1_1_58_1" value="123" size="32" maxlength="254" />
+                <span class="icon-place"></span>
+              </div>
+            </div><!-- /Product_Div -->
+          </div><!-- /column2 --><span class="clearfix"></span>
+
+          <div class="element-textarea" style="margin:0">
+            <label class="title"><span class="required">* </span>Purpose of Loan</label>
+            <div class="item-cont" style="padding:0;margin:0;display:block">
+              <textarea class="valueEditable medium required" name="_1_1_55_1" id="_1_1_55_1" title="Purpose of Loan" wrap="soft" cols="20" rows="5" ONCHANGE="markDirty();">123</textarea>
+              <div class="print hide-new">123</div>
+            </div>
+          </div>
+
+          <div class="column column2">
+            <div id="Total_Exposure_Div" class="element-money" title="Total Exposure">
+              <label id="_1_1_52_1_Label" class="title">Total Exposure</label>
+              <div class="item-cont">
+                <input class="valueEditable large" type="text" name="_1_1_52_1" title="Total Exposure" id="_1_1_52_1" value="1.23" size="32" maxlength="32" />
+                <span class="icon-place"></span>
+              </div>
+            </div><!-- /Total_Exposure_Div -->
+          </div><!-- /column2 -->
+          <div class="column column2">
+            <div id="Group_Exposure_Div" class="element-money" title="Group Exposure">
+              <label id="_1_1_53_1_Label" class="title">Group Exposure</label>
+              <div class="item-cont">
+                <input class="valueEditable large" type="text" name="_1_1_53_1" title="Group Exposure" id="_1_1_53_1" value="1.23" size="32" maxlength="32" />
+                <span class="icon-place"></span>
+              </div>
+            </div><!-- /Group_Exposure_Div -->
+          </div><!-- /column2 --><span class="clearfix"></span>
+
+          <div class="clear"></div>
+        </div><!-- /Info_Section -->
+
+        <div id="Checklist_Section" class="columnWrapper hide-new">
+          <div class="element-separator">
+            <hr />
+          </div>
+
+          <div id="Attachments_Section">
+            <!-- Link to the Workflow Attachments at the top of the checklist -->
+            <div id="Attach_Button" class="left">
+              <input class="applybutton" id="viewAttach" type="button" value="Workspace Documents" name="viewAttach" onclick="showAttachments('view')" />
+            </div><!-- Attach_Button -->
+
+            <div id="BPBW_Div" class="hide-new" title="BPBW" style="">
+              <div class="right" style="margin:0 0 0 15px;">
+                <input class="applybutton bpbwBtn" id="Attach_Btn" type="button" value="Show Attachments" name="Attach_Btn" onclick="showAttachments('attach')" />
+                <input class="applybutton bpbwBtn" id="Workspace_Btn" type="button" value="Show Workspace" name="Workspace_Btn" onclick="showAttachments('workspace')" />
+                <input class="applyButton bpbwBtn" id="MoveFiles" type="button" name="MoveFiles" value="Move Files" onclick="doMoveFiles('/otcs/llisapi.dll', '570636', '3814764');" />
+              </div>
+              <div class="right" style="text-align: right; position: relative;">
+                <span class="bpbw_path hide-new">Business Workspace Path: </span><input class="bpbwText text clearable" type="text" name="_1_1_177_1" title="BP Workspace Path" id="_1_1_177_1" value="Enterprise:Business Partner:BZ:BZ 0000503067 Test Today 3" size="32" maxlength="254" onChange="markDirty();" disabled="disabled" />
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+
+            <!--    Accordion Section    -->
+            
+  <div id="Workspace_Browser" class="columnWrapper">
+    <div id="new_accordion" width="100%" style="color:black; font-size: inherit; font-family: inherit; padding:0; margin:0;"> 
+      <input class="workSpaceExpand" type="checkbox" name="topAccordion" id="topAccordion" />
+      <label id="acc_title">
+        <i class="fa fa-plus-square workspaceBrowserExpander" aria-hidden="true" id="WorkspaceBrowserExpander"></i>Workspace Browser
+      </label>
+      <div id="acc_content" class="acc_content" style="padding:0;margin:0;" width="100%">
+        <ul>
+          <!-- This is the level for the tabs.  The first tab should be the flat file list.  The second can be the full browser.   These need to be loaded offline from an ajax call. -->
+      	  
+          <li class="docList">
+            <label>
+              <i class="fa fa-list-ul" aria-hidden="true"></i>Document List<i id='RefreshDocumentList' class="fa fa-refresh right" aria-hidden="true"></i>
+            </label>
+            <table class="flatListTable"> 
+              <thead>
+                <tr class="hdr">
+                  <th class="hdrColumn15">Folder<i class="fa square fa-sort" aria-hidden="true"></i></th>
+                  <th class="hdrColumnFile">Name<i class="fa square fa-sort" aria-hidden="true"></i></th>
+                  <th class="hdrColumn10">Modified<i class="fa fa-sort" aria-hidden="true"></i></th>
+                </tr>
+              </thead>
+<tbody id="FlatTableBody">
+
+                  <tr id="954606">
+                    <td class="rowFolder">AMLs - SEMS</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/954606" target="_blank">ATest.txt</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="953328">
+                    <td class="rowFolder">AMLs - SEMS</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/953328" target="_blank">getApprlkjlkjovalProposals_WR.html</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="954206">
+                    <td class="rowFolder">AMLs - SEMS</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/954206" target="_blank">sadfsdfsdf.html</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="1018369">
+                    <td class="rowFolder">BZ 0000503067 Test Today 3</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/1018369" target="_blank">ATest.txt</a></span>
+                    </td>
+                    <td class="rowDate date">05/09/2017</td>
+                  </tr>
+
+                  <tr id="3810666">
+                    <td class="rowFolder">Insurance</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/3810666" target="_blank">Test Doc.txt</a></span>
+                    </td>
+                    <td class="rowDate date">08/16/2017</td>
+                  </tr>
+
+                  <tr id="926526">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/926526" target="_blank">canvas.js</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="926480">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/926480" target="_blank">Contract Approval Form (CAF) Workflow Map.map</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="926519">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/926519" target="_blank">New Document.docx</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="925951">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/925951" target="_blank">symdesc.js</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="925737">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/925737" target="_blank">Test 2</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="925736">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/925736" target="_blank">Test Doc Marcos</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+                  <tr id="926518">
+                    <td class="rowFolder">Legals</td>
+                    <td class="rowFile">
+                      <span><a href="http://opentextdev.laadsa.local/otcs/llisapi.dll/Open/926518" target="_blank">TEST DOC.rtf</a></span>
+                    </td>
+                    <td class="rowDate date">04/26/2017</td>
+                  </tr>
+
+
+
+
+
+</tbody>
+            </table>
+          </li>
+
+      	  
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+            <div class="clear"></div>
+          </div><!-- /Attachments_Section -->
+        </div><!-- /Checklist_Section -->
+
+        <div id="Signature_Section" class="columnWrapper hide-new">
+          <!-- Two columns (1 check box and second ID of person that checked.  Enabled only for the step that CAN check that box -->
+          <div class="element-separator">
+            <hr />
+          </div>
+      
+          <div class="sectionTitle"><h3>Proposal Signatures</h3><p class="note">Please check the active box for your step to indicate your acceptance.  Checking the box will allow the workflow to move to the next step.</p></div>
+ <div class="clear"></div>
+          <div class="col-lg-4">
+            <div id="_1_1_62_1_Div" class="signatureCheckbox cb">
+              <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" CHECKED  name="_1_1_62_1_checkbox" title="Create Proposal" id="_1_1_62_1_checkbox" value="" /><label for="_1_1_62_1_checkbox">Create Proposal</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_62_1_checkbox_Exists" NAME="_1_1_62_1_checkbox_Exists" value="1">
+            </div><!-- /_1_1_62_1_Div -->
+          </div><!-- /column3 -->
+          <div class="col-lg-4">
+            <div id="_1_1_62_1_UserDiv" class="signatureName">
+              <input type="hidden" id="_1_1_63_1_ID" name="_1_1_63_1_ID" value="114232" />
+              <input type="hidden" id="_1_1_63_1_SavedName" name="_1_1_63_1_SavedName" value="Robert Kraai (Robert)" />
+              <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_63_1');" id="_1_1_63_1_Name" type="TEXT" name="_1_1_63_1_Name" value="Robert Kraai (Robert)" disabled="disabled" />
+            </div><!-- /_1_1_62_1_UserDiv -->
+          </div><!-- /column3 -->
+          <div class="col-lg-4">
+            <div id="_1_1_62_1_TimeDiv" class="signatureTime">
+              <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_64_1" type="TEXT" name="_1_1_64_1" value="08/02/2017 09:38:27" disabled="disabled" />
+            </div><!-- /_1_1_62_1_TimeDiv -->
+          </div><!-- /column2 -->
+          
+          <div class="col-lg-4 clear">
+            <div id="_1_1_65_1_Div" class="signatureCheckbox cb">
+              <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" CHECKED  name="_1_1_65_1_checkbox" title="Proposal Completed" id="_1_1_65_1_checkbox" value="" /><label for="_1_1_65_1_checkbox">Proposed</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_65_1_checkbox_Exists" NAME="_1_1_65_1_checkbox_Exists" value="1">
+            </div><!-- /_1_1_65_1_Div -->
+          </div><!-- /column3 -->
+          <div class="col-lg-4">
+            <div id="_1_1_65_1_UserDiv" class="signatureName">
+              <input type="hidden" id="_1_1_66_1_ID" name="_1_1_66_1_ID" value="114232" />
+              <input type="hidden" id="_1_1_66_1_SavedName" name="_1_1_66_1_SavedName" value="Robert Kraai (Robert)" />
+              <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_66_1');" id="_1_1_66_1_Name" type="TEXT" name="_1_1_66_1_Name" value="Robert Kraai (Robert)" disabled="disabled" />
+            </div><!-- /_1_1_65_1_UserDiv -->
+          </div><!-- /column3 -->
+          <div class="col-lg-4">
+            <div id="_1_1_65_1_TimeDiv" class="signatureTime">
+              <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_67_1" type="TEXT" name="_1_1_67_1" value="08/02/2017 09:41:41" disabled="disabled" />
+            </div><!-- /_1_1_65_1_TimeDiv -->
+          </div><!-- /column2 -->
+       
+          
+
+          <div class="col-lg-4 clear">
+            <div id="_1_1_68_1_Div" class="signatureCheckbox cb">
+              <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" CHECKED  name="_1_1_68_1_checkbox" title="VP Consideration Completed" id="_1_1_68_1_checkbox" value="" /><label for="_1_1_68_1_checkbox">VP Recommended</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_68_1_checkbox_Exists" NAME="_1_1_68_1_checkbox_Exists" value="1">
+            </div><!-- /_1_1_68_1_Div -->
+          </div><!-- /column3 -->
+          <div class="col-lg-4">
+            <div id="_1_1_68_1_UserDiv" class="signatureName">
+              <input type="hidden" id="_1_1_69_1_ID" name="_1_1_69_1_ID" value="114232" />
+              <input type="hidden" id="_1_1_69_1_SavedName" name="_1_1_69_1_SavedName" value="Robert Kraai (Robert)" />
+              <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_69_1');" id="_1_1_69_1_Name" type="TEXT" name="_1_1_69_1_Name" value="Robert Kraai (Robert)" disabled="disabled" />
+            </div><!-- /_1_1_68_1_UserDiv -->
+          </div><!-- /column3 -->
+          <div class="col-lg-4" >
+            <div id="_1_1_68_1_TimeDiv" class="signatureTime">
+              <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_70_1" type="TEXT" name="_1_1_70_1" value="08/02/2017 09:42:15" disabled="disabled" />
+            </div><!-- /_1_1_68_1_TimeDiv -->
+          </div><!-- /column2 -->
+          
+          <div id="CEOConsideration">
+            <div class="col-lg-4 clear">
+              <div id="_1_1_190_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_190_1_checkbox" title="CEO or CFO Completed" id="_1_1_190_1_checkbox" value="" /><label for="_1_1_190_1_checkbox">CEO or CFO Recommended</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_190_1_checkbox_Exists" NAME="_1_1_190_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_190_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4" >
+              <div id="_1_1_190_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_191_1_ID" name="_1_1_191_1_ID" value="" />
+                <input type="hidden" id="_1_1_191_1_SavedName" name="_1_1_191_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_191_1');" id="_1_1_191_1_Name" type="TEXT" name="_1_1_191_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_190_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4" >
+              <div id="_1_1_190_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_192_1" type="TEXT" name="_1_1_192_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_190_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div><!-- /CEOConsideration -->
+        </div><!-- /Signature_Section -->
+
+        <div id="Recommendation_Signature_Section" class="columnWrapper hide-new">
+          <!-- Two columns (1 check box and second ID of person that checked.  Enabled only for the step that CAN check that box -->
+          <div class="element-separator">
+            <hr />
+          </div>
+      
+          <div class="sectionTitle"><h3>Recommendation Signatures</h3><p class="note">Please check the active box for your step to indicate your acceptance.  Checking the box will allow the workflow to move to the next step.</p></div>
+
+<!--As Child-->
+          <div id="CreditRecommendation">
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+              <div id="_1_1_80_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_80_1_checkbox" title="Credit Recommendation Completed" id="_1_1_80_1_checkbox" value="" /><label for="_1_1_80_1_checkbox">Cleared by Credit</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_80_1_checkbox_Exists" NAME="_1_1_80_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_80_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_80_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_81_1_ID" name="_1_1_81_1_ID" value="" />
+                <input type="hidden" id="_1_1_81_1_SavedName" name="_1_1_81_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_81_1');" id="_1_1_81_1_Name" type="TEXT" name="_1_1_81_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_80_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_80_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_82_1" type="TEXT" name="_1_1_82_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_80_1_TimeDiv -->
+            </div><!-- /column2 -->
+          <div id="AMLRecommendation">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_213_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_213_1_checkbox" title="AML Recommendation Comnpleted" id="_1_1_213_1_checkbox" value="" /><label for="_1_1_213_1_checkbox">Cleared by AML</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_213_1_checkbox_Exists" NAME="_1_1_213_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_213_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_213_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_214_1_ID" name="_1_1_214_1_ID" value="" />
+                <input type="hidden" id="_1_1_214_1_SavedName" name="_1_1_214_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_214_1');" id="_1_1_214_1_Name" type="TEXT" name="_1_1_214_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_213_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+              <div id="_1_1_213_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_215_1" type="TEXT" name="_1_1_215_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_213_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+          <div id="SeniorAMLRecommendation">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_178_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_178_1_checkbox" title="Senior AML Recommendation Completed" id="_1_1_178_1_checkbox" value="" /><label for="_1_1_178_1_checkbox">Cleared by Senior AML</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_178_1_checkbox_Exists" NAME="_1_1_178_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_178_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_178_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_179_1_ID" name="_1_1_179_1_ID" value="" />
+                <input type="hidden" id="_1_1_179_1_SavedName" name="_1_1_179_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_179_1');" id="_1_1_179_1_Name" type="TEXT" name="_1_1_179_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_178_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_178_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_180_1" type="TEXT" name="_1_1_180_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_178_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+          <div id="SEMSRecommendation">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_92_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_92_1_checkbox" title="SEMS Recommendation Completed" id="_1_1_92_1_checkbox" value="" /><label for="_1_1_92_1_checkbox">Cleared by SEMS</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_92_1_checkbox_Exists" NAME="_1_1_92_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_92_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_92_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_93_1_ID" name="_1_1_93_1_ID" value="" />
+                <input type="hidden" id="_1_1_93_1_SavedName" name="_1_1_93_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_93_1');" id="_1_1_93_1_Name" type="TEXT" name="_1_1_93_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_92_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_92_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_94_1" type="TEXT" name="_1_1_94_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_92_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+
+          <div id="CEOOverride" class="hide-new">
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_197_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_197_1_checkbox" title="CEO Override Completed" id="_1_1_197_1_checkbox" value="" /><label for="_1_1_197_1_checkbox">CEO Override Completed</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_197_1_checkbox_Exists" NAME="_1_1_197_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_197_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_197_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_198_1_ID" name="_1_1_198_1_ID" value="" />
+                <input type="hidden" id="_1_1_198_1_SavedName" name="_1_1_198_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_198_1');" id="_1_1_198_1_Name" type="TEXT" name="_1_1_198_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_197_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_197_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_199_1" type="TEXT" name="_1_1_199_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_197_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+        </div><!-- /Recommendation_Signature_Section -->
+
+        <div id="Approval_Signature_Section" class="columnWrapper hide-new">
+          <!-- Two columns (1 check box and second ID of person that checked.  Enabled only for the step that CAN check that box -->
+          <div class="element-separator">
+            <hr />
+          </div>
+      
+          <div class="sectionTitle"><h3>Approval Signatures</h3><p class="note">Please check the active box for your step to indicate your acceptance.  Checking the box will allow the workflow to move to the next step.</p></div>
+          <div id="RVP" >
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_98_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_98_1_checkbox" title="RVP Completed" id="_1_1_98_1_checkbox" value="" /><label for="_1_1_98_1_checkbox">RVP Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_98_1_checkbox_Exists" NAME="_1_1_98_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_98_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_98_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_99_1_ID" name="_1_1_99_1_ID" value="" />
+                <input type="hidden" id="_1_1_99_1_SavedName" name="_1_1_99_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_99_1');" id="_1_1_99_1_Name" type="TEXT" name="_1_1_99_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_98_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_98_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_100_1" type="TEXT" name="_1_1_100_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_98_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+          <div id="CEOCFO">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_104_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_104_1_checkbox" title="CEO or CFO Completed" id="_1_1_104_1_checkbox" value="" /><label for="_1_1_104_1_checkbox">CEO or CFO Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_104_1_checkbox_Exists" NAME="_1_1_104_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_104_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_104_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_105_1_ID" name="_1_1_105_1_ID" value="" />
+                <input type="hidden" id="_1_1_105_1_SavedName" name="_1_1_105_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_105_1');" id="_1_1_105_1_Name" type="TEXT" name="_1_1_105_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_104_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_104_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_106_1" type="TEXT" name="_1_1_106_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_104_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+          <div id="CreditICC">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_110_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_110_1_checkbox" title="ICC Credit Completed" id="_1_1_110_1_checkbox" value="" /><label for="_1_1_110_1_checkbox">Credit ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_110_1_checkbox_Exists" NAME="_1_1_110_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_110_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_110_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_111_1_ID" name="_1_1_111_1_ID" value="" />
+                <input type="hidden" id="_1_1_111_1_SavedName" name="_1_1_111_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_111_1');" id="_1_1_111_1_Name" type="TEXT" name="_1_1_111_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_110_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_110_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_112_1" type="TEXT" name="_1_1_112_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_110_1_TimeDiv -->
+            </div><!-- /column2 -->
+            <div class="clear"></div>
+          </div>
+          <div id="CEOICC">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_163_1_165_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_163_1_165_1_checkbox" title="CEO ICC Completed" id="_1_1_163_1_165_1_checkbox" value="" /><label for="_1_1_163_1_165_1_checkbox">CEO ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_163_1_165_1_checkbox_Exists" NAME="_1_1_163_1_165_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_163_1_165_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_1_165_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_163_1_166_1_ID" name="_1_1_163_1_166_1_ID" value="" />
+                <input type="hidden" id="_1_1_163_1_166_1_SavedName" name="_1_1_163_1_166_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_163_1_166_1');" id="_1_1_163_1_166_1_Name" type="TEXT" name="_1_1_163_1_166_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_1_165_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_1_165_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_163_1_167_1" type="TEXT" name="_1_1_163_1_167_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_1_165_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+          <div id="CFOICC">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_163_2_165_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_163_2_165_1_checkbox" title="CFO ICC Completed" id="_1_1_163_2_165_1_checkbox" value="" /><label for="_1_1_163_2_165_1_checkbox">CFO ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_163_2_165_1_checkbox_Exists" NAME="_1_1_163_2_165_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_163_2_165_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_2_165_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_163_2_166_1_ID" name="_1_1_163_2_166_1_ID" value="" />
+                <input type="hidden" id="_1_1_163_2_166_1_SavedName" name="_1_1_163_2_166_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_163_2_166_1');" id="_1_1_163_2_166_1_Name" type="TEXT" name="_1_1_163_2_166_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_2_165_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_2_165_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_163_2_167_1" type="TEXT" name="_1_1_163_2_167_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_2_165_1_TimeDiv -->
+            </div><!-- /column2 -->
+            <div class="clear"></div>
+          </div>
+          <div id="vpLegalICC">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_163_3_165_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_163_3_165_1_checkbox" title="VP Legal ICC Completed" id="_1_1_163_3_165_1_checkbox" value="" /><label for="_1_1_163_3_165_1_checkbox">VP Legal ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_163_3_165_1_checkbox_Exists" NAME="_1_1_163_3_165_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_163_3_165_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_3_165_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_163_3_166_1_ID" name="_1_1_163_3_166_1_ID" value="" />
+                <input type="hidden" id="_1_1_163_3_166_1_SavedName" name="_1_1_163_3_166_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_163_3_166_1');" id="_1_1_163_3_166_1_Name" type="TEXT" name="_1_1_163_3_166_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_3_165_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_3_165_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_163_3_167_1" type="TEXT" name="_1_1_163_3_167_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_3_165_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+          <div id="vpRegion1">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_163_4_165_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_163_4_165_1_checkbox" title="VP Region 2 ICC Completed" id="_1_1_163_4_165_1_checkbox" value="" /><label for="_1_1_163_4_165_1_checkbox">VP Region 1 ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_163_4_165_1_checkbox_Exists" NAME="_1_1_163_4_165_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_163_4_165_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_4_165_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_163_4_166_1_ID" name="_1_1_163_4_166_1_ID" value="" />
+                <input type="hidden" id="_1_1_163_4_166_1_SavedName" name="_1_1_163_4_166_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_163_4_166_1');" id="_1_1_163_4_166_1_Name" type="TEXT" name="_1_1_163_4_166_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_4_165_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_4_165_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_163_4_167_1" type="TEXT" name="_1_1_163_4_167_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_4_165_1_TimeDiv -->
+            </div><!-- /column2 -->
+            <div class="clear"></div>
+          </div>
+          <div id="vpRegion2">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_163_5_165_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_163_5_165_1_checkbox" title="VP Region 2 ICC Completed" id="_1_1_163_5_165_1_checkbox" value="" /><label for="_1_1_163_5_165_1_checkbox">VP Region 2 ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_163_5_165_1_checkbox_Exists" NAME="_1_1_163_5_165_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_163_5_165_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_5_165_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_163_5_166_1_ID" name="_1_1_163_5_166_1_ID" value="" />
+                <input type="hidden" id="_1_1_163_5_166_1_SavedName" name="_1_1_163_5_166_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_163_5_166_1');" id="_1_1_163_5_166_1_Name" type="TEXT" name="_1_1_163_5_166_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_5_165_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_5_165_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_163_5_167_1" type="TEXT" name="_1_1_163_5_167_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_5_165_1_TimeDiv -->
+            </div><!-- /column2 -->
+            <div class="clear"></div>
+          </div>
+          <div id="vpRegion3">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_163_6_165_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_163_6_165_1_checkbox" title="VP Region 3 ICC Completed" id="_1_1_163_6_165_1_checkbox" value="" /><label for="_1_1_163_6_165_1_checkbox">VP Region 3 ICC Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_163_6_165_1_checkbox_Exists" NAME="_1_1_163_6_165_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_163_6_165_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_6_165_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_163_6_166_1_ID" name="_1_1_163_6_166_1_ID" value="" />
+                <input type="hidden" id="_1_1_163_6_166_1_SavedName" name="_1_1_163_6_166_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_163_6_166_1');" id="_1_1_163_6_166_1_Name" type="TEXT" name="_1_1_163_6_166_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_6_165_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_163_6_165_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_163_6_167_1" type="TEXT" name="_1_1_163_6_167_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_163_6_165_1_TimeDiv -->
+            </div><!-- /column2 -->
+            <div class="clear"></div>
+          </div>
+          <div id="Board">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_131_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_131_1_checkbox" title="Board Completed" id="_1_1_131_1_checkbox" value="" /><label for="_1_1_131_1_checkbox">Board Approved</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_131_1_checkbox_Exists" NAME="_1_1_131_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_131_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_131_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_132_1_ID" name="_1_1_132_1_ID" value="" />
+                <input type="hidden" id="_1_1_132_1_SavedName" name="_1_1_132_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_132_1');" id="_1_1_132_1_Name" type="TEXT" name="_1_1_132_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_131_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_131_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_133_1" type="TEXT" name="_1_1_133_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_131_1_TimeDiv -->
+            </div><!-- /column2 -->
+            
+          </div>
+        </div><!-- /Approval_Signature_Section -->
+
+        <div id="Final_Signature_Section" class="columnWrapper hide-new">
+          <!-- Two columns (1 check box and second ID of person that checked.  Enabled only for the step that CAN check that box -->
+          <div class="element-separator">
+            <hr />
+          </div>
+      
+          <div class="sectionTitle"><h3>Post Approval Signoff</h3><p class="note">Please check the active box for your step to indicate your acceptance.  Checking the box will allow the workflow to move to the next step.</p></div>
+          <div id="creditFinal">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_134_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_134_1_checkbox" title="Credit Finalization Completed" id="_1_1_134_1_checkbox" value="" /><label for="_1_1_134_1_checkbox">Credit Final Completed</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_134_1_checkbox_Exists" NAME="_1_1_134_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_134_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_134_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_135_1_ID" name="_1_1_135_1_ID" value="" />
+                <input type="hidden" id="_1_1_135_1_SavedName" name="_1_1_135_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_135_1');" id="_1_1_135_1_Name" type="TEXT" name="_1_1_135_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_134_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_134_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_136_1" type="TEXT" name="_1_1_136_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_134_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+        </div><!-- /Final_Section -->
+
+        <div id="Collect_Final_Signature_Section" class="columnWrapper hide-new">
+          <div id="CollectFinal">
+            <div class="col-lg-4 col-sm-6 col-xs-12 clear" >
+              <div id="_1_1_137_1_Div" class="signatureCheckbox cb">
+                <input class="valueEditable checkboxInput" onChange="markDirty();" type="checkbox" name="_1_1_137_1_checkbox" title="Collect Final Documents Completed" id="_1_1_137_1_checkbox" value="" /><label for="_1_1_137_1_checkbox">Collect Final Documents Completed</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_137_1_checkbox_Exists" NAME="_1_1_137_1_checkbox_Exists" value="1">
+              </div><!-- /_1_1_137_1_Div -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_137_1_UserDiv" class="signatureName">
+                <input type="hidden" id="_1_1_138_1_ID" name="_1_1_138_1_ID" value="" />
+                <input type="hidden" id="_1_1_138_1_SavedName" name="_1_1_138_1_SavedName" value="" />
+                <input class="valueEditable xlarge"  onChange="javascript:getUserInfo('_1_1_138_1');" id="_1_1_138_1_Name" type="TEXT" name="_1_1_138_1_Name" value="" disabled="disabled" />
+              </div><!-- /_1_1_137_1_UserDiv -->
+            </div><!-- /column3 -->
+            <div class="col-lg-4 col-sm-6 col-xs-12" >
+              <div id="_1_1_137_1_TimeDiv" class="signatureTime">
+                <input class="valueEditable xlarge" onChange="markDirty();" id="_1_1_139_1" type="TEXT" name="_1_1_139_1" value="" disabled="disabled" />
+              </div><!-- /_1_1_137_1_TimeDiv -->
+            </div><!-- /column2 -->
+          </div>
+        </div><!-- /Collect_Final_Signature_Section -->
+        
+        <div id="Comment_Section" class="">
+          <div class="element-separator">
+            <hr />
+          </div>
+
+          <div class="element-textarea" style="margin:0">
+            <label class="title">Comments</label>
+            <div id="ImportantComment" class="right" >
+              <input class="valueEditable checkboxInput" type="checkbox" name="_1_1_161_1_checkbox" title="Important Comment Flag" id="_1_1_161_1_checkbox" value="" /><label for="_1_1_161_1_checkbox" disabled="disabled">Important Comment</label>
+<INPUT TYPE="HIDDEN" ID="_1_1_161_1_checkbox_Exists" NAME="_1_1_161_1_checkbox_Exists" value="1">
+            </div>
+            <div class="item-cont" style="padding:0;margin:0;display:block">
+              <textarea class="valueEditable medium" style="height:4em;margin:0;display:block;" name="_1_1_160_1_NewComment" id="_1_1_160_1_NewComment" wrap="soft" cols="20" rows="5" ONCHANGE="validateImportantComment();"></textarea>
+              <div>
+                <div style="padding:0;margin:0;display:block">
+                  <textarea readonly  class="medium" style="margin:0;display:block; border-top:0px" tabindex= "-1" name="_1_1_160_1_Display" id="_1_1_160_1_Display" wrap="soft" cols="20" rows="5" ONCHANGE="markDirty();"></textarea>
+                </div>
+                <div class="print hide-new" name="_1_1_160_1_Print" id="_1_1_160_1_Print"></div>
+                <span class="icon-place"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="element-input hide-new status">
+            <label class="title">Status</label>
+            <div class="item-cont">
+              AML Recommendation
+            </div>
+          </div>
+        </div>
+
+        <div id="Deny_Section" class="">
+          <div class="element-separator">
+            <hr />
+          </div>
+
+          <div class="element-textarea" style="margin:0">
+            <label id="DenialReason" class="title">Cancel Reason</label>
+            <div class="item-cont" style="padding:0;margin:0;display:block">
+              <textarea class="valueEditable medium" style="height:4em;margin:0;display:block;" name="_1_1_60_1_NewComment" id="_1_1_60_1_NewComment" wrap="soft" cols="20" rows="5" ></textarea>
+              <div>
+                <div style="padding:0;margin:0;display:block">
+                  <textarea readonly  class="medium" style="margin:0;display:block; border-top:0px" tabindex= "-1" name="_1_1_60_1_Display" id="_1_1_60_1_Display" wrap="soft" cols="20" rows="5" ONCHANGE="markDirty();"></textarea>
+                </div>
+                <div class="print hide-new" name="_1_1_60_1_Print" id="_1_1_60_1_Print"></div>
+                <span class="icon-place"></span>
+              </div>
+            </div>
+            <div id="ExecuteDenialButton">
+              <input class="applyButton" type="button" name="Deny_This_Request" id="Deny_This_Request" value="Cancel This Request" onclick="doSubmit('Proposal_Cancel');" />
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+        <div id="Button_Section" class="">
+          <div class="element-separator">
+            <hr />
+          </div>
+
+          <div id="OperationsButton" class="buttonWrapper hide-new">
+            <input class="applyButton" type="button" name="Operations" value="Return to Ops" onclick="doSubmit('Proposal_Operations');" />
+          </div>
+          <div id="ReturnButton" class="buttonWrapper hide-new">
+            <input class="applyButton" type="button" name="Return" value="Return to Referrer" onclick="doSubmit('Proposal_Return');" />
+          </div>
+          <div id="HoldButton" class="buttonWrapper hide-new">
+            <input class="applyButton" type="button" name="Hold" value="Put on Hold" onclick="doSubmit('Proposal_Hold');" />
+          </div>
+          <div id="DenyButton" class="buttonWrapper hide-new">
+            <input class="applyButton" type="button" id="DenialButton" name="DenialButton" value="Cancel" onclick="showDenialSection();" />
+          </div>
+          <div id="SubmitButton" class="buttonWrapper">
+            <input class="applyButton" type="button" name="Submit" value="Submit" onclick="doSubmit('Proposal_Submit');" />
+          </div>
+          <div id="SendTo_Select_Div"  style="margin-left:0 !important; padding:5px 8px 8px 3px !important" class="buttonWrapper hide-new right">
+            <div class="element-select" style="margin-left:0 !important;">
+              <div class="item-cont">
+                <div class="null">
+                  <span>
+                    <select class="valueEditable selectMenu" style="" id="SendTo_Select" name="SendTo_Select">
+                      <option value="" SELECTED >&lt;Select One&gt;</option>
+                      <option id="sendToStepOperations" value="Proposal_Operations">Operations Assistance</option>
+                      <option id="sendToStepCreateProposal" value="Proposal_Create_Proposal">Create Proposal</option>
+                      <option id="sendToStepAMLAssistance" value="Proposal_AML_Assistance">AML Assistance</option>
+                      <option id="sendToStepProposal" value="Proposal_Propose">Propose</option>
+                      <option id="sendToStepVPConsideration" value="Proposal_VP_Consideration">VP Consideration</option>
+                      <option id="sendToStepRVPLoanReview" value="Proposal_RVP_Loan_Review">RVP Loan Review</option>
+                      <option id="sendToStepRVPandFieldOffice" value="Proposal_RVP_Field_Office">RVP and Field Office Corrections</option>
+                      <option id="sendToStepLegalLoanReview" value="Proposal_Legal_Loan_Review">Legal Loan Review</option>
+                      <option id="sendToStepCreditReview" value="Proposal_Credit_Review">Credit Review</option>
+                      <option id="sendToStepFieldOfficeCorrection" value="Proposal_Field_Office_Correction">Field Office Correction</option>
+                      <option id="sendToStepSeniorAMLRecommendation" value="Proposal_Senior_AML_Recommendation">Senior AML Recommendation</option>
+                      <option id="sendToStepCEOOverride" value="Proposal_CEO_Override">CEO Override</option>
+                    </select>
+                    <span class="icon-place"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div><!-- /SendTo_Select_Div -->
+
+          <div id="SendToButton" style="margin-right:0 !important; padding-right:0 !important" class="buttonWrapper hide-new right">
+            <input class="applyButton" style="margin-right:0 !important;" id="SendToButton_input" type="button" name="Send To" value="Send To" onclick="doSubmit('Proposal_SendTo');" />
+          </div>
+
+          <div class="clear"></div>
+        </div><!-- /Button_Section -->
+        
+      </div><!-- /innerFormWrapper -->
+      
+      <div id="dialog" title="File Migration">
+        <div class="progress-label"></div>
+        <div id="progressbar"></div>
+      </div>
+      <!-- <button id="downloadButton">Start</button> -->
+    </form>
+</div>
+          </div></div>
+  </div>
+  </body>
+</html>
+

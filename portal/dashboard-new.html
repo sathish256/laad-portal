@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+  <title>Dashboard | Latin American Agribusiness Development Corporation (LAAD)</title>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" media="all" />
+ <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
+<!-- dashboard header elements -->
+  <!-- FOR PRODUCTION BEGIN -->
+    <link   type="image/x-icon" href="/portal/img/favicon.ico"                   rel="shortcut icon" />
+    <link   type="text/css"     href="/portal/img/LAAD/css/jquery-ui.css"        rel="stylesheet" />
+    <style  type="text/css">   @import url("/portal/img/LAAD/css/custom-styles.css");</style>
+    <link type="text/css" href="/portal/img/LAAD/css/reports/theme.blue.css" rel="stylesheet" />
+
+<!-- LL_WEBREPORT_IF WRPrintView IS **Undefined constant**  -->
+    <link   type="text/css"     href="/portal/img/LAAD/css/default-clear.css" rel="stylesheet" class="colorSwitch" />
+<!-- LL_WEBREPORT_ENDIF  -->
+
+    <link   type="text/css"     href="/portal/img/LAAD/css/font-awesome.min.css" rel="stylesheet" />
+    <link   type="text/css"     href="/portal/img/LAAD/css/print.css"           rel="stylesheet" media="print" />
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/laad-application.js"></script>
+    <!-- Tablesorter: required -->
+    <script type="text/javascript" src="/portal/img/LAAD/js/reports/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/reports/widgets/widget-filter.js"></script>
+    <!-- Select2 code -->
+    <link href="/portal/img/LAAD/css/reports/select2.min.css" rel="stylesheet">
+    <script src="/portal/img/LAAD/js/reports/select2.min.js"></script>
+    <script src="/portal/img/LAAD/js/reports/widgets/widget-filter-formatter-select2.js"></script>
+    <!-- FOR PRODUCTION END --> 
+<script>
+  var screenFormVersion = "20170228";
+
+  var cgiPath                   = "/otcs/llisapi.dll";
+  var laadDisbursementSubWR     = "601215";
+  var inactiveWorkflowDisplay     = ""
+  var baseDashboardURL          = "/otcs/llisapi.dll/Open/599195"
+  
+  document.title = "Test Dashboard WR";
+  
+  $(document).ready(function () {
+    try {
+      setAllDashboardDefaults();
+    } catch(err) {
+      //Block of code to handle errors
+      alert("There was an unexpected error:  Please contact the system administrator.")
+      log("setAllDashboardDefaults() : Catch Error: " + err);
+    }
+    convertTableDate();
+  });
+</script>
+<link rel="stylesheet" href="/css/styles.css" media="all" />
+</head>
+<body>
+  <div class="log">
+   <!-- language navigation --> 
+    <div class="lang-nav">
+      <div class="container">
+          <div class="logo-inner">
+            <a href="/"><img src="/images/logo-white.png" border="0"></a>
+          </div>
+        <ul>
+          <li><a href="/" title="English"><img src="/images/lang-eng.png" alt="English language"></a></li>
+          <li><a href="/es" title="Espanol"><img src="/images/lang-es.png" alt="Spanish language"></a></li>
+          <li><a href="/bp" title="Portuguese"><img src="/images/lang-port.png" alt="Portuguese"></a></li>
+        </ul>
+      </div>
+    </div>
+      <!-- main navigation -->
+    <div class="outer-nav">
+      <div class="nav container">
+        <ul class="full">
+          <li><a class="active" href="/" title="dashboard">Dashboard</a></li>
+          <li><a href="#" title="DMS">DMS</a> </li>
+           <li><a href="#" title="Tools">Tools</a>
+           <ul>
+              <li><a href="" title="Start Loan Proposal">Start Loan Proposal</a></li>
+              <li><a href="" title="Start Loan Disbursment">Start Loan Disbursment</a></li>
+              <li><a href="" title="Start Expense Requisition">Start Expense Requisition</a></li>
+          
+            </ul></li>
+           <li><a href="#" title="Loan Disbursment">Loan Disbursment</a> </li>
+           <li><a href="#" title="Loan Disbursment">Start Expense</a> </li>
+           <li class="login"><a href="#" title="Loan Disbursment">Hello Robert</a> </li>
+            
+        </ul>
+      </div>
+      <div class="caret"><a href="#menu" class="menu-trigger">Close</a></div>
+    </div>
+
+  <div class="phone">
+          <a href="tel:3054451341">+ 1 (305) 445-1341</a>
+  </div>
+<!-- BEGIN Header area -->
+
+  <header>
+   
+    <div class="container inner-header">
+      <h2 class="site-name">
+        Latin American Agribusiness Development Corporation S.A.
+      </h2>
+      <h2 class="slogan">
+        Local Knowledge    Focus    Flexibility
+      </h2>
+    </div>
+  </header>
+<!-- END Header area -->
+<div class="clearfix"></div>
+
+<!-- BEGIN middle area -->
+
+  <div class="middle-content">
+    <div class="page-description">
+      
+      <div class="side-nav">
+        <div class="butn"> + 
+        </div> 
+        <div class="nav-title">Switch Tools
+        </div>
+          <ul>
+            <li><a href="" title="Start Loan Proposal">Start Loan Proposal</a></li>
+            <li><a href="" title="Start Loan Disbursement">Start Loan Disbursement</a></li>
+            <li><a href="" title="Start Expense Requisition">Start Expense Requisition</a></li></ul>
+      </div>
+
+      <div class="container statement">
+        <div class="row">
+          <div class="account-hdr col-lg-12 col-md-12 col-xs-12">
+            <h1 class="pg-title col-lg-6 ">Disbursment Dashboard</h1>
+            <!-- <div class="acc-number col-lg-6"><strong>Account</strong> #005456-4531</div> -->
+          </div>
+          
+          <div class="col-xs-12">
+           <table align="center" border="0" cellpadding="0" cellspacing="0" id="WFStatusList" width="100%">
+  <tbody>
+    <tr valign="top">
+      <td class="tblBackground" width="100%">
+      <form enctype="multipart/form-data" id="MultiManageControl" method="post" name="MultiManageControl"></form>
+        <input name="func" type="hidden" value="">
+        <input name="NewStatus" type="hidden" value="">
+        <input name="NoArchiveCacheID" type="hidden" value="807156291">
+        <input name="ArchivedCacheID" type="hidden" value="0">
+        <input name="sort" type="hidden" value="Title">
+        <input name="Kind" type="hidden" value="ALL">
+        <input name="Status" type="hidden" value="NOARCHIVE">
+        <input name="nextURL" type="hidden" value="/otcs/llisapi.dll?func=work.status&amp;kind=ALL&amp;status=NOARCHIVE&amp;NoArchiveCacheID=807156291&amp;ArchivedCacheID=0&amp;page=1&amp;wfstatusobjid=19381&amp;sort=Title">
+
+        <table border="0" cellpadding="0" cellspacing="1" width="100%">
+          <tbody>
+            <tr>
+              <td>
+                <table border="0" cellpadding="0" cellspacing="1" width="100%" background="/portal/img/fon-table-header-gray.gif">
+                  <tbody>
+                    <tr>
+                      <td><img alt="" border="0" height="28" src="/portal/img/spacer.gif" width="8"></td>
+                      <td class="browseBoxHeader" style width="100%">Workflows
+                        <div style="float:right;margin-left: 2cm;">
+                          <label style="float:left;">Active Only</label>
+                          <label class="switch">
+                            <input id="ActiveToggle" type="checkbox" >
+                            <div class="slider"></div>
+                          </label>
+                        </div>
+                        <button class="toolbar-additem-button" style="float:right !important;" id="initdisbursement" onclick="window.location.href='/otcs/llisapi.dll/Open/89327'" style="width: 220px">Start Loan Disbursement</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="100%">
+                <table border="0" cellpadding="0" cellspacing="0" id="DBListing" width="100%">
+                  <thead>
+                    <tr class="browseListHeader">
+                      <th>Disbursement ID</th>
+                      <th>Assignment</th>
+                      <th>BP Name</th>
+                      <th>BP Number</th>
+                      <th>Loan Number</th>
+                      <th class="filter-select filter-onlyAvail">Field Office</th>
+                      <th>Amount</th>
+                      <th class="filter-select filter-onlyAvail">Status</th>
+                      <th class="filter-select filter-onlyAvail">WF State</th>
+                      <th>Start Date</th>
+                      <th>Details</th>
+                      <th>Print</th>
+                    </tr>
+                  </thead>
+                  <tbody><!-- END HEADER -->
+                    <tr class="browseRow1">
+
+                      <td class="browseItemDisbursementID" nowrap>
+                        <a href="/otcs/llisapi.dll?func=work.statusheader&PaneIndex=1&workid=736204&subworkid=736204">736204</a>&nbsp; <a href="#" onclick="setSectionName('');showFunctionMenu2('subworkid=736204&amp;workid=736204&amp;status=NOARCHIVE&amp;objID=736204&amp;ShowWFTabs=false', '736204', event, '', '/otcs/llisapi.dll?func=work.StatusMenu&amp;title=Workflow%2520Status&amp;sort=Title&amp;status=NOARCHIVE&amp;kind=All&amp;page=0&amp;CacheId=0&amp;ArchivedCacheId=0&amp;NoArchiveCacheId=807156291&amp;wfstatusobjid=19381&amp;ShowWFTabs=false' );setSectionName('');return false"><img alt="Functions" border="0" id="x736204" onmouseout="this.src='/portal/img/actions.png'" onmouseover="this.src='/portal/img/actions_hover.png'" src="/portal/img/actions.png" title="Functions"></a>
+                        <div class="functionMenuDiv" id="z736204"></div>
+                      </td>
+
+
+                      <td class="browseItemAssignment" nowrap>Syed (Delete) 546440</td>
+
+                      <td class="browseItemBPName" nowrap>AMERICAN FLOWER CORP.</td>
+                      <td class="browseItemBPNumber" nowrap>0000500240</td>
+                      <td class="browseItemLoanNumber" nowrap>111122</td>
+                      <td class="browseItemFieldOffice" nowrap>Costa Rica</td>
+                      <td class="browseItemAmount" nowrap>11111</td>
+                      <td class="browseItemStatuses" nowrap>Operations Completes Disbursement</td>
+                      <td class="browseItemWFState" nowrap>Active</td>
+                      <td class="browseItemStartDate dateCell" nowrap>Sun, 20 Mar 2016 01:02:34 GMT</td>
+                      <td class="browseItemColDetails" nowrap><a href="#" onclick="showSubReportDialog(736204);return false;"><img class="detailIcon" src="/portal/img/LAAD/images/View-Details-Icon-25x25.png" border="0" alt="Details Icon" ></a></td>
+                      <td class="browseItemColPrint" nowrap><a href="/otcs/llisapi.dll?func=formwf.FormEdit&WorkID=736204&SubWorkID=736204&formid=1&viewname=Disbursement Print View WR&editable=1658553833&nexturl" target="_blank"><img class="printIcon" src="/portal/img/LAAD/images/Print-View-Icon-25x25.png" border="0" alt="Print Icon" ></a></td>    
+                    </tr>
+                    <tr class="browseRow2">
+
+                      <td class="browseItemDisbursementID" nowrap>
+                        <a href="/otcs/llisapi.dll?func=work.statusheader&PaneIndex=1&workid=3581493&subworkid=3581493">3581493</a>&nbsp; <a href="#" onclick="setSectionName('');showFunctionMenu2('subworkid=3581493&amp;workid=3581493&amp;status=NOARCHIVE&amp;objID=3581493&amp;ShowWFTabs=false', '3581493', event, '', '/otcs/llisapi.dll?func=work.StatusMenu&amp;title=Workflow%2520Status&amp;sort=Title&amp;status=NOARCHIVE&amp;kind=All&amp;page=0&amp;CacheId=0&amp;ArchivedCacheId=0&amp;NoArchiveCacheId=807156291&amp;wfstatusobjid=19381&amp;ShowWFTabs=false' );setSectionName('');return false"><img alt="Functions" border="0" id="x3581493" onmouseout="this.src='/portal/img/actions.png'" onmouseover="this.src='/portal/img/actions_hover.png'" src="/portal/img/actions.png" title="Functions"></a>
+                        <div class="functionMenuDiv" id="z3581493"></div>
+                      </td>
+
+
+                      <td class="browseItemAssignment" nowrap>JMendoza</td>
+
+                      <td class="browseItemBPName" nowrap>0000500234 OSVINO AZZOLINI</td>
+                      <td class="browseItemBPNumber" nowrap>0000500234</td>
+                      <td class="browseItemLoanNumber" nowrap> </td>
+                      <td class="browseItemFieldOffice" nowrap>Bolivia</td>
+                      <td class="browseItemAmount" nowrap>100000.00</td>
+                      <td class="browseItemStatuses" nowrap>Operations Completes Disbursement</td>
+                      <td class="browseItemWFState" nowrap>Active</td>
+                      <td class="browseItemStartDate dateCell" nowrap>Tue, 08 Aug 2017 17:19:04 GMT</td>
+                      <td class="browseItemColDetails" nowrap><a href="#" onclick="showSubReportDialog(3581493);return false;"><img class="detailIcon" src="/portal/img/LAAD/images/View-Details-Icon-25x25.png" border="0" alt="Details Icon" ></a></td>
+                      <td class="browseItemColPrint" nowrap><a href="/otcs/llisapi.dll?func=formwf.FormEdit&WorkID=3581493&SubWorkID=3581493&formid=1&viewname=Disbursement Print View WR&editable=1658568720&nexturl" target="_blank"><img class="printIcon" src="/portal/img/LAAD/images/Print-View-Icon-25x25.png" border="0" alt="Print Icon" ></a></td>    
+                    </tr>
+<!-- END ROWS --><!-- BEGIN FOOTER -->
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td style="BACKGROUND-REPEAT: repeat-y" width="2" background="/portal/img/form-shadow-right.gif"><img height="2" alt="" src="/portal/img/form-shadow-right.gif" width="2" border="0" /></td>
+    </tr>
+    <tr>
+      <td width="100%" background="/portal/img/form-shadow-bottom.gif"><img height="2" alt="" src="/portal/img/block-shadow-bottom-left.gif" width="2" border="0" /></td>
+      <td valign="top" width="2"><img height="2" alt="" src="/portal/img/block-shadow-bottom-right.gif" width="2" border="0" /></td>
+    </tr>
+  </tbody>
+</table>
+<div id="dialog-subReport"> </div>
+<!-- END FOOTER -->
+<div id="subWrapper" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close ui-dialog-buttons ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="dialog-subReport" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 900px; top: 96px; left: 385.5px; display: block; z-index: 101;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">3581493 - 0000500234 OSVINO AZZOLINI - Bolivia - 100000.00</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="dialog-subReport" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 2px; max-height: none; height: auto;">
+<!-- {D/2017/8/17:10:51:1,40,23,''} -->
+
+<div id="subReport_3581493_title" class="subReportTitle">3581493 - 0000500234 OSVINO AZZOLINI - Bolivia - 100000.00</div>
+          
+          <table align="center" border="0" cellpadding="0" cellspacing="0" id="WFStatusList" width="100%">
+            <tbody>
+              <tr valign="top">
+                <td class="tblBackground" width="100%">
+                  
+
+                  <table border="0" cellpadding="0" cellspacing="1" width="100%">
+                    <tbody>
+
+                      <tr>
+                        <td width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" id="WFListingSub" width="100%">
+                            <tbody>
+                              <tr class="browseListHeader">
+
+                                <td class="browseListHeaderStepName" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Step Name</a>&nbsp;
+                                </td>
+                                <td></td>
+                                
+                                <td class="browseListHeaderPerformedBy" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Performed By</a>&nbsp;
+                                </td>
+                                <td></td>
+                                
+                                <td class="browseListHeaderStartDate" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Start</a>&nbsp;
+                                </td>
+                                <td></td>
+                                
+                                <td class="browseListHeaderDoneDate" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Finished</a>&nbsp;
+                                </td>                              
+                                
+                              </tr>
+
+                              <tr class="horizontalCellDivider">
+                                <td class="browseRowDivider" colspan="100"><img alt="" border="0" height="1" src="/portal/img/px.gif" width="1"></td>
+                              </tr>
+                
+                <!-- END HEADER -->
+                
+              <!-- BEGIN ROWS -->
+        
+      <tr class="browseRow2"><td class="browseItemBPName" nowrap="">Initiate Disbursement</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemBPNumber" nowrap="">Jaime Mendoza</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemLoanNumber dateCell" nowrap=""></td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemStartDate dateCell" nowrap="">8/8/2017, 1:19:04 PM</td></tr><tr class="browseRow1 bold"><td class="browseItemBPName" nowrap="">Operations Completes Disbursement</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemBPNumber" nowrap=""></td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemLoanNumber" nowrap="">Pending</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemFieldOffice" nowrap=""></td></tr>
+<!-- END ROWS -->
+                
+                <!-- BEGIN FOOTER -->
+
+                              <tr class="horizontalCellDivider">
+                                <td class="browseRowDivider" colspan="100"><img height="1" alt="" src="/portal/img/px.gif" width="1" border="0"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </td>
+
+                <td style="BACKGROUND-REPEAT: repeat-y" width="2" background="/portal/img/form-shadow-right.gif"><img height="2" alt="" src="/portal/img/form-shadow-right.gif" width="2" border="0"></td>
+              </tr>
+
+              <tr>
+                <td width="100%" background="/portal/img/form-shadow-bottom.gif"><img height="2" alt="" src="/portal/img/block-shadow-bottom-left.gif" width="2" border="0"></td>
+
+                <td valign="top" width="2"><img height="2" alt="" src="/portal/img/block-shadow-bottom-right.gif" width="2" border="0"></td>
+              </tr>
+            </tbody>
+          </table>
+      
+      <!-- END FOOTER -->
+
+
+
+
+
+</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  onclick="showSubReportDialog(3581493);return false;" role="button"><span class="ui-button-text">Close</span></button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div>
+
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+        </div>
+      </div>
+    </div><div class="clear"></div>
+  </div>
+<!-- END middle area -->
+
+
+ </div></div>   
+  </div>
+      <footer>
+    &copy; Copyright. All Rights Reserved.
+  </footer>
+</body>
+</head>

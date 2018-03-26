@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+<!-- FOR PRODUCTION BEGIN -->
+    <link   type="image/x-icon" href="/portal/img/favicon.ico"                   rel="shortcut icon" />
+    <link   type="text/css"     href="/portal/img/LAAD/css/jquery-ui.css"        rel="stylesheet" />
+    <style  type="text/css">   @import url("/portal/img/LAAD/css/custom-styles.css");</style>
+
+<!-- LL_WEBREPORT_IF WRPrintView IS **Undefined constant**  -->
+    <link   type="text/css"     href="/portal/img/LAAD/css/default-clear.css" rel="stylesheet" class="colorSwitch" />
+<!-- LL_WEBREPORT_ENDIF  -->
+
+    <link   type="text/css"     href="/portal/img/LAAD/css/font-awesome.min.css" rel="stylesheet" />
+    <link   type="text/css"     href="/portal/img/LAAD/css/print.css"           rel="stylesheet" media="print" />
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/laad-application.js"></script>
+    <!-- Tablesorter: required -->
+    <link type="text/css" href="/portal/img/LAAD/css/reports/theme.blue.css" rel="stylesheet" />
+    <script type="text/javascript" src="/portal/img/LAAD/js/reports/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="/portal/img/LAAD/js/reports/widgets/widget-filter.js"></script>
+    <!-- Select2 code -->
+    <link href="/portal/img/LAAD/css/reports/select2.min.css" rel="stylesheet">
+    <script src="/portal/img/LAAD/js/reports/select2.min.js"></script>
+    <script src="/portal/img/LAAD/js/reports/widgets/widget-filter-formatter-select2.js"></script>
+    <!-- FOR PRODUCTION END -->
+<style>
+
+  .browseRow1 { background-color: #ffffff;  } 
+  .browseRow2 { background-color: #eeeeee;  }
+
+  .no-close .ui-dialog-titlebar-close {
+    display: none;
+  }
+  .hide{ display:none; }
+  .detailIcon{ width: 15px; height: 15px; }
+  .printIcon{ width: 15px; height: 15px; }
+ 
+  .browseListHeader th{ font-weight: bold; text-align: left; }
+  .browseListHeader th[data-sort]{
+    cursor:pointer;
+  }
+  th.browseListHeaderStatus{ text-align: center; }
+
+  #WFListing tr:nth-child(even) > td {
+    background-color: #eeeeee;
+  }
+  #WFListing tr:nth-child(odd) > td {
+    background-color: #ffffff;
+  }
+	
+	.tablesorter-filter.disabled{display:none;}
+	
+	.tablesorter-filter-row.hideme td { padding:5px !important; }
+  
+  .headerRight {
+    float: right;
+  }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 29px;
+  height: 17px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  transform: translateX(10px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+<script>
+  var screenFormVersion = "20170228";
+
+  var cgiPath                   = "/otcs/llisapi.dll";
+  var laadDisbursementSubWR     = "601215";
+  var inactiveWorkflowDisplay     = ""
+  var baseDashboardURL          = "/otcs/llisapi.dll/Open/599195"
+  
+  document.title = "Test Dashboard WR";
+  
+  $(document).ready(function () {
+    try {
+      setAllDashboardDefaults();
+    } catch(err) {
+      //Block of code to handle errors
+      alert("There was an unexpected error:  Please contact the system administrator.")
+      log("setAllDashboardDefaults() : Catch Error: " + err);
+    }
+    convertTableDate();
+  });
+</script>
+  </head>
+
+  <body class="pageBody blurBg-false" style="">
+
+    <TITLE>Disbursement Dashboard</TITLE>
+<div class="locationPageTitle"><div class="pageTitleText"><h1>Disbursement Dashboard</h1></div></div>
+
+
+	
+<table align="center" border="0" cellpadding="0" cellspacing="0" id="WFStatusList" width="100%">
+  <tbody>
+    <tr valign="top">
+      <td class="tblBackground" width="100%">
+      <form enctype="multipart/form-data" id="MultiManageControl" method="post" name="MultiManageControl"></form>
+        <input name="func" type="hidden" value="">
+        <input name="NewStatus" type="hidden" value="">
+        <input name="NoArchiveCacheID" type="hidden" value="807156291">
+        <input name="ArchivedCacheID" type="hidden" value="0">
+        <input name="sort" type="hidden" value="Title">
+        <input name="Kind" type="hidden" value="ALL">
+        <input name="Status" type="hidden" value="NOARCHIVE">
+        <input name="nextURL" type="hidden" value="/otcs/llisapi.dll?func=work.status&amp;kind=ALL&amp;status=NOARCHIVE&amp;NoArchiveCacheID=807156291&amp;ArchivedCacheID=0&amp;page=1&amp;wfstatusobjid=19381&amp;sort=Title">
+
+        <table border="0" cellpadding="0" cellspacing="1" width="100%">
+          <tbody>
+            <tr>
+              <td>
+                <table border="0" cellpadding="0" cellspacing="1" width="100%" background="/portal/img/fon-table-header-gray.gif">
+                  <tbody>
+                    <tr>
+                      <td><img alt="" border="0" height="28" src="/portal/img/spacer.gif" width="8"></td>
+                      <td class="browseBoxHeader" style width="100%">Workflows
+                        <div style="float:right;margin-left: 2cm;">
+                          <label style="float:left;">Active Only</label>
+                          <label class="switch">
+                            <input id="ActiveToggle" type="checkbox" >
+                            <div class="slider"></div>
+                          </label>
+                        </div>
+                        <button class="toolbar-additem-button" style="float:right !important;" id="initdisbursement" onclick="window.location.href='/otcs/llisapi.dll/Open/89327'" style="width: 220px">Start Loan Disbursement</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="100%">
+                <table border="0" cellpadding="0" cellspacing="0" id="DBListing" width="100%">
+                  <thead>
+                    <tr class="browseListHeader">
+                      <th>Disbursement ID</th>
+                      <th>Assignment</th>
+                      <th>BP Name</th>
+                      <th>BP Number</th>
+                      <th>Loan Number</th>
+                      <th class="filter-select filter-onlyAvail">Field Office</th>
+                      <th>Amount</th>
+                      <th class="filter-select filter-onlyAvail">Status</th>
+                      <th class="filter-select filter-onlyAvail">WF State</th>
+                      <th>Start Date</th>
+                      <th>Details</th>
+                      <th>Print</th>
+                    </tr>
+                  </thead>
+                  <tbody><!-- END HEADER -->
+                    <tr class="browseRow1">
+
+                      <td class="browseItemDisbursementID" nowrap>
+                        <a href="/otcs/llisapi.dll?func=work.statusheader&PaneIndex=1&workid=736204&subworkid=736204">736204</a>&nbsp; <a href="#" onclick="setSectionName('');showFunctionMenu2('subworkid=736204&amp;workid=736204&amp;status=NOARCHIVE&amp;objID=736204&amp;ShowWFTabs=false', '736204', event, '', '/otcs/llisapi.dll?func=work.StatusMenu&amp;title=Workflow%2520Status&amp;sort=Title&amp;status=NOARCHIVE&amp;kind=All&amp;page=0&amp;CacheId=0&amp;ArchivedCacheId=0&amp;NoArchiveCacheId=807156291&amp;wfstatusobjid=19381&amp;ShowWFTabs=false' );setSectionName('');return false"><img alt="Functions" border="0" id="x736204" onmouseout="this.src='/portal/img/actions.png'" onmouseover="this.src='/portal/img/actions_hover.png'" src="/portal/img/actions.png" title="Functions"></a>
+                        <div class="functionMenuDiv" id="z736204"></div>
+                      </td>
+
+
+                      <td class="browseItemAssignment" nowrap>Syed (Delete) 546440</td>
+
+                      <td class="browseItemBPName" nowrap>AMERICAN FLOWER CORP.</td>
+                      <td class="browseItemBPNumber" nowrap>0000500240</td>
+                      <td class="browseItemLoanNumber" nowrap>111122</td>
+                      <td class="browseItemFieldOffice" nowrap>Costa Rica</td>
+                      <td class="browseItemAmount" nowrap>11111</td>
+                      <td class="browseItemStatuses" nowrap>Operations Completes Disbursement</td>
+                      <td class="browseItemWFState" nowrap>Active</td>
+                      <td class="browseItemStartDate dateCell" nowrap>Sun, 20 Mar 2016 01:02:34 GMT</td>
+                      <td class="browseItemColDetails" nowrap><a href="#" onclick="showSubReportDialog(736204);return false;"><img class="detailIcon" src="/portal/img/LAAD/images/View-Details-Icon-25x25.png" border="0" alt="Details Icon" ></a></td>
+                      <td class="browseItemColPrint" nowrap><a href="/otcs/llisapi.dll?func=formwf.FormEdit&WorkID=736204&SubWorkID=736204&formid=1&viewname=Disbursement Print View WR&editable=1658553833&nexturl" target="_blank"><img class="printIcon" src="/portal/img/LAAD/images/Print-View-Icon-25x25.png" border="0" alt="Print Icon" ></a></td>    
+                    </tr>
+                    <tr class="browseRow2">
+
+                      <td class="browseItemDisbursementID" nowrap>
+                        <a href="/otcs/llisapi.dll?func=work.statusheader&PaneIndex=1&workid=3581493&subworkid=3581493">3581493</a>&nbsp; <a href="#" onclick="setSectionName('');showFunctionMenu2('subworkid=3581493&amp;workid=3581493&amp;status=NOARCHIVE&amp;objID=3581493&amp;ShowWFTabs=false', '3581493', event, '', '/otcs/llisapi.dll?func=work.StatusMenu&amp;title=Workflow%2520Status&amp;sort=Title&amp;status=NOARCHIVE&amp;kind=All&amp;page=0&amp;CacheId=0&amp;ArchivedCacheId=0&amp;NoArchiveCacheId=807156291&amp;wfstatusobjid=19381&amp;ShowWFTabs=false' );setSectionName('');return false"><img alt="Functions" border="0" id="x3581493" onmouseout="this.src='/portal/img/actions.png'" onmouseover="this.src='/portal/img/actions_hover.png'" src="/portal/img/actions.png" title="Functions"></a>
+                        <div class="functionMenuDiv" id="z3581493"></div>
+                      </td>
+
+
+                      <td class="browseItemAssignment" nowrap>JMendoza</td>
+
+                      <td class="browseItemBPName" nowrap>0000500234 OSVINO AZZOLINI</td>
+                      <td class="browseItemBPNumber" nowrap>0000500234</td>
+                      <td class="browseItemLoanNumber" nowrap> </td>
+                      <td class="browseItemFieldOffice" nowrap>Bolivia</td>
+                      <td class="browseItemAmount" nowrap>100000.00</td>
+                      <td class="browseItemStatuses" nowrap>Operations Completes Disbursement</td>
+                      <td class="browseItemWFState" nowrap>Active</td>
+                      <td class="browseItemStartDate dateCell" nowrap>Tue, 08 Aug 2017 17:19:04 GMT</td>
+                      <td class="browseItemColDetails" nowrap><a href="#" onclick="showSubReportDialog(3581493);return false;"><img class="detailIcon" src="/portal/img/LAAD/images/View-Details-Icon-25x25.png" border="0" alt="Details Icon" ></a></td>
+                      <td class="browseItemColPrint" nowrap><a href="/otcs/llisapi.dll?func=formwf.FormEdit&WorkID=3581493&SubWorkID=3581493&formid=1&viewname=Disbursement Print View WR&editable=1658568720&nexturl" target="_blank"><img class="printIcon" src="/portal/img/LAAD/images/Print-View-Icon-25x25.png" border="0" alt="Print Icon" ></a></td>    
+                    </tr>
+<!-- END ROWS --><!-- BEGIN FOOTER -->
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td style="BACKGROUND-REPEAT: repeat-y" width="2" background="/portal/img/form-shadow-right.gif"><img height="2" alt="" src="/portal/img/form-shadow-right.gif" width="2" border="0" /></td>
+    </tr>
+    <tr>
+      <td width="100%" background="/portal/img/form-shadow-bottom.gif"><img height="2" alt="" src="/portal/img/block-shadow-bottom-left.gif" width="2" border="0" /></td>
+      <td valign="top" width="2"><img height="2" alt="" src="/portal/img/block-shadow-bottom-right.gif" width="2" border="0" /></td>
+    </tr>
+  </tbody>
+</table>
+<div id="dialog-subReport"> </div>
+<!-- END FOOTER -->
+<div id="subWrapper" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close ui-dialog-buttons ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="dialog-subReport" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 900px; top: 96px; left: 385.5px; display: block; z-index: 101;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">3581493 - 0000500234 OSVINO AZZOLINI - Bolivia - 100000.00</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="dialog-subReport" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 2px; max-height: none; height: auto;">
+<!-- {D/2017/8/17:10:51:1,40,23,''} -->
+
+
+
+
+
+<style>
+ /*.Browserow1 { background-color: #FFFFFF;  } 
+ .Browserow2 { background-color: #FFFFFF;  } */
+
+ .browseRow1 { background-color: #ffffff;  } 
+ .browseRow2 { background-color: #eeeeee;  }
+
+ .subReportTitle { display:none; }
+ .bold { font-weight:bold; }
+</style>
+
+
+<!--
+
+<B>Disbursement Dashboard Details WR</B>
+
+
+<a href="#" onclick="javascript:setSectionName( '' );showFunctionMenu2( '&nexturl=%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D601215%26objAction%3DRunReport%26DisbursementID%3D3581493%26outputType%3Dselect', 601215, event, '', '' );setSectionName( '' );return false;" ><img src="/portal/img/webdoc/actions.png" ID="x601215" border="0" alt="Functions" title="Functions" onmouseover="this.src='/portal/img/webdoc/actions_hover.png'" onmouseout="this.src='/portal/img/webdoc/actions.png'"></A><div id="z601215" class="functionMenuDiv" style="width: 1px"></div>
+
+
+<A HREF='?func=ll&objId=2879953&objAction=browse&sort=name' ><IMG BORDER='0' SRC='/portal/img/webdoc/upalevel.gif' ALT='Navigate up one level to Dashboard' /></A>
+<BR><BR>
+-->
+
+          <div id="subReport_3581493_title" class="subReportTitle">3581493 - 0000500234 OSVINO AZZOLINI - Bolivia - 100000.00</div>
+          
+          <table align="center" border="0" cellpadding="0" cellspacing="0" id="WFStatusList" width="100%">
+            <tbody>
+              <tr valign="top">
+                <td class="tblBackground" width="100%">
+                  
+
+                  <table border="0" cellpadding="0" cellspacing="1" width="100%">
+                    <tbody>
+
+                      <tr>
+                        <td width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" id="WFListingSub" width="100%">
+                            <tbody>
+                              <tr class="browseListHeader">
+
+                                <td class="browseListHeaderStepName" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Step Name</a>&nbsp;
+                                </td>
+                                <td></td>
+                                
+                                <td class="browseListHeaderPerformedBy" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Performed By</a>&nbsp;
+                                </td>
+                                <td></td>
+                                
+                                <td class="browseListHeaderStartDate" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Start</a>&nbsp;
+                                </td>
+                                <td></td>
+                                
+                                <td class="browseListHeaderDoneDate" nowrap="" scope="colgroup">
+                                  &nbsp;<a>Finished</a>&nbsp;
+                                </td>                              
+                                
+                              </tr>
+
+                              <tr class="horizontalCellDivider">
+                                <td class="browseRowDivider" colspan="100"><img alt="" border="0" height="1" src="/portal/img/px.gif" width="1"></td>
+                              </tr>
+							  
+							  <!-- END HEADER -->
+							  
+							<!-- BEGIN ROWS -->
+				
+			<tr class="browseRow2"><td class="browseItemBPName" nowrap="">Initiate Disbursement</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemBPNumber" nowrap="">Jaime Mendoza</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemLoanNumber dateCell" nowrap=""></td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemStartDate dateCell" nowrap="">8/8/2017, 1:19:04 PM</td></tr><tr class="browseRow1 bold"><td class="browseItemBPName" nowrap="">Operations Completes Disbursement</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemBPNumber" nowrap=""></td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemLoanNumber" nowrap="">Pending</td><td><img alt="" border="0" height="1" src="/portal/img/px.gif" width="2"></td><td class="browseItemFieldOffice" nowrap=""></td></tr>
+<!-- END ROWS -->
+							  
+							  <!-- BEGIN FOOTER -->
+
+                              <tr class="horizontalCellDivider">
+                                <td class="browseRowDivider" colspan="100"><img height="1" alt="" src="/portal/img/px.gif" width="1" border="0"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </td>
+
+                <td style="BACKGROUND-REPEAT: repeat-y" width="2" background="/portal/img/form-shadow-right.gif"><img height="2" alt="" src="/portal/img/form-shadow-right.gif" width="2" border="0"></td>
+              </tr>
+
+              <tr>
+                <td width="100%" background="/portal/img/form-shadow-bottom.gif"><img height="2" alt="" src="/portal/img/block-shadow-bottom-left.gif" width="2" border="0"></td>
+
+                <td valign="top" width="2"><img height="2" alt="" src="/portal/img/block-shadow-bottom-right.gif" width="2" border="0"></td>
+              </tr>
+            </tbody>
+          </table>
+		  
+		  <!-- END FOOTER -->
+
+
+
+
+
+</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"  onclick="showSubReportDialog(3581493);return false;" role="button"><span class="ui-button-text">Close</span></button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div>
+
+
