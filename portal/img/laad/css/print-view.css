@@ -1,0 +1,107 @@
+/* @media print { */
+
+    input, select, textarea {
+        /* border: none !important; */
+    }
+    
+    #PrintViewButtons{
+        display:block;
+    }
+    
+    textarea, 
+    span.required,
+    .asterisk, 
+    .element-textarea span.icon-place,
+    #Attachments_Section input[type=button],
+    #colorchanger, 
+    #selectFieldOfficeButton, 
+    #SendTo_Select_Div,
+    #Signature_Section .note{
+        display:none;
+    }
+
+    #BPBW_Div .right{
+        float:left;
+        text-align:left !important;
+    }
+    
+    #BPBW_Div .bpbw_path{
+      font-weight:bold;
+    }
+    
+    .laadform-solid-orange {
+      border-radius:none;
+      box-shadow:none;
+    }
+    
+    
+    .laadform-solid-orange div.title{
+    	background-color: #013b81;
+      border-top: none;
+      border-bottom: 5px solid #013b81;
+    }
+
+    .laadform-solid-orange div.title h2{
+    	/* color:#000; */
+    }
+    
+    #BP_And_Loan_Section input[disabled], 
+    #BP_And_Loan_Section select:disabled, 
+    #BP_And_Loan_Section select[disabled], 
+    #Checklist_Section input[type=text][disabled]{
+      background-color: #fff !important;
+    }
+    
+    .laadform-solid-orange input[type=text], 
+    .laadform-solid-orange input[type=password], 
+    .laadform-solid-orange input[type=email], 
+    .laadform-solid-orange input[type=url], 
+    .laadform-solid-orange input[type=date], 
+    .laadform-solid-orange input[type=number], 
+    .laadform-solid-orange input[type=tel], 
+    .laadform-solid-orange textarea, 
+    .laadform-solid-orange select, 
+    .laadform-solid-orange .element-file .file_text{
+        /* padding: 5px 5px 4px 0; */
+    }
+    
+    .signatureName, .signatureTime{
+        /*  padding:5px 0 0 20px; */
+    }
+    
+    .item-cont{
+        /* padding:5px 0 15px 0; */
+    }
+    
+    #Checklist_Section .item-cont{
+        /* padding:5px 0 0 0; */
+    }
+    
+    #Additional_Checklist_Section .element-textarea{
+        /* padding:5px 0 0 0; */
+    }
+    
+    #Post_Approval_Signature_Section .column3, 
+    #Signature_Section .column3{
+        width:25%;
+    }
+    
+    .status, .bpbw_path{
+        display:inline;
+    }
+    .print{
+        display:inline;
+    }
+    
+    .element-textarea .print.hide{
+        border:2px solid #bdc3c7;
+        display: block;
+        min-height: 20px;
+    }
+    
+    #Attachments_Section .bpbwText{
+        width:985px;
+    }
+   
+    
+/* } */

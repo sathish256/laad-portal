@@ -1,0 +1,238 @@
+
+/* .laadform-solid-orange color scheme begin */
+/*
+    first:  #ff0099;    Default
+    second: #CC007A;    Darker x2
+    third:  #FF4DB8;    lighter x3
+*/
+
+/* custom style BEGIN */
+input[type=text]:focus, select:focus, option:focus{
+  border: 2px solid #ff0099 !important;
+  background-color: #FBFBCB;
+}
+.hdr {
+background: #ff0099;
+}
+.icos .fa:hover {
+    color:  #ff0099;
+}
+#Loan_Section h3 {
+    background: #ff0099;
+}
+/*.laadform-solid-orange h2{
+  color:#000;
+}
+
+.laadform-solid-orange input[type=reset], .laadform-solid-orange input[type=button], .laadform-solid-orange input[type=submit]{
+  color:#000;
+}*/
+/* custom style end */
+
+/* Accordion Colors Based on the Color Changes Selection */
+.accordion-section-title {
+	background: #ff0099;
+}
+.accordion-section-title.active, .accordion-section-title:hover {
+	background: #FF4DB8;
+}
+
+
+.laadform-solid-orange input[type=button]:focus,
+.laadform-solid-orange input[type=button]:active,
+.laadform-solid-orange input[type=button]:hover,
+.laadform-solid-orange input[type=button][disabled] {
+  border-color: #ff0099;
+}
+.laadform-solid-orange div.title{
+  background-color: #ff0099;
+  border-top: 1px solid #FF4DB8;
+  border-bottom: 5px solid #CC007A;
+}
+
+.laadform-solid-orange input[type=submit], .laadform-solid-orange input[type=button], .laadform-solid-orange input[type=reset]{
+  background-color: #ff0099;
+}
+
+.laadform-solid-orange input[type=submit]:hover, .laadform-solid-orange input[type=button]:hover, .laadform-solid-orange input[type=reset]:hover{
+  background-color: #FF4DB8;
+}
+.laadform-solid-orange input[type=submit]:active, .laadform-solid-orange input[type=button]:active, .laadform-solid-orange input[type=reset]:active{
+  background-color: #CC007A;
+}
+/* File input */
+.laadform-solid-orange .element-file .button {
+  background-color: #ff0099;
+}
+.laadform-solid-orange .element-file .file_text{
+  border-color: #bdc3c7;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #FF4DB8;
+}
+.laadform-solid-orange .element-file .button:hover {
+  background-color: #FF4DB8;
+}
+.laadform-solid-orange .element-file .button:active {
+  background-color: #CC007A;
+}
+.laadform-solid-orange .element-file label:active .file_text{
+  border-color: #ff0099;
+}
+
+/* element-submit + element-text */
+.laadform-solid-orange > .submit,
+.laadform-solid-orange > .title{
+  background-color: #bcc3ca;
+}
+.laadform-solid-orange > .submit{
+  background-color: #edeff1;
+  border-top: 2px solid #d6dbdf;
+}
+
+/* checkbox & radio*/
+.laadform-solid-orange input[type=checkbox]+span:before{
+  border-color: #bdc3c7;
+}
+.laadform-solid-orange input[type=checkbox]:hover+span:before{
+  border-color: #FF4DB8;
+}
+.laadform-solid-orange input[type=checkbox]:checked+span:before{
+  color: #ff0099;
+  border-color: #ff0099;
+}
+
+/* radio */
+.laadform-solid-orange input[type=radio]+span:before{
+  color: #bdc3c7;
+}
+.laadform-solid-orange input[type=radio]:hover+span:before{
+  color: #FF4DB8;
+}
+.laadform-solid-orange input[type=radio]:checked+span:before{
+  color: #ff0099;
+}
+/* rating */
+.laadform-solid-orange .rating-star:after,
+.laadform-solid-orange .rating:hover .rating-star:after {
+  color: #bdc3c7;
+}
+.laadform-solid-orange .rating:hover .rating-star:hover:after,
+.laadform-solid-orange .rating:hover .rating-star:hover ~ .rating-star:after {
+  color: #FF4DB8;
+}
+.laadform-solid-orange .rating-input:checked ~ .rating-star:after {
+  color: #ff0099;
+}
+
+.laadform-solid-orange input[type=text]:hover,
+.laadform-solid-orange input[type=tel]:hover,
+.laadform-solid-orange input[type=password]:hover,
+.laadform-solid-orange input[type=email]:hover,
+.laadform-solid-orange input[type=url]:hover,
+.laadform-solid-orange input[type=date]:hover,
+.laadform-solid-orange input[type=number]:hover,
+.laadform-solid-orange input[type=file]:hover,
+.laadform-solid-orange textarea:hover,
+.laadform-solid-orange select:hover {
+  border-color: #FF4DB8;
+}
+.laadform-solid-orange input[type=text]:focus,
+.laadform-solid-orange input[type=tel]:focus,
+.laadform-solid-orange input[type=password]:focus,
+.laadform-solid-orange input[type=email]:focus,
+.laadform-solid-orange input[type=url]:focus,
+.laadform-solid-orange input[type=date]:focus,
+.laadform-solid-orange input[type=number]:focus,
+.laadform-solid-orange input[type=file]:focus,
+.laadform-solid-orange textarea:focus,
+.laadform-solid-orange select:focus{
+  border-color: #ff0099;
+}
+
+/* element icons */
+.laadform-solid-orange input:focus ~ .icon-place:before,
+.laadform-solid-orange textarea:focus ~ .icon-place:before,
+.laadform-solid-orange select:focus ~ .icon-place:before,
+.laadform-solid-orange .select.open ~ .icon-place:before,
+.laadform-solid-orange input[type=file]:focus ~ .icon-place:before,
+.laadform-solid-orange .button:focus ~ .icon-place:before,
+.laadform-solid-orange .file_text:focus ~ .icon-place:before {
+  color: #ff0099;
+}
+
+/* bootstrap select */
+.laadform-solid-orange .dropdown-menu li.active > a,
+.laadform-solid-orange .dropdown-menu li.selected > a,
+.laadform-solid-orange .dropdown-menu li.active > a.highlighted,
+.laadform-solid-orange .dropdown-menu li.selected > a.highlighted,
+.laadform-solid-orange .dropdown-inverse li.active > a,
+.laadform-solid-orange .dropdown-inverse li.selected > a {
+  background-color: #ff0099;
+}
+.laadform-solid-orange .btn.btn-primary:hover,
+.laadform-solid-orange .btn.btn-primary:focus,
+.laadform-solid-orange .btn-group:focus .btn.btn-primary.dropdown-toggle {
+  border-color: #FF4DB8;
+}
+.laadform-solid-orange .btn.btn-primary:active,
+.laadform-solid-orange .btn-group.open .btn.btn-primary.dropdown-toggle,
+.laadform-solid-orange .btn.btn-primary.active,
+.laadform-solid-orange .dropdown-menu li.active > a:hover,
+.laadform-solid-orange .dropdown-menu li.selected > a:hover,
+.laadform-solid-orange .dropdown-menu li.active > a.highlighted:hover,
+.laadform-solid-orange .dropdown-menu li.selected > a.highlighted:hover,
+.laadform-solid-orange .dropdown-menu li.active > a:focus,
+.laadform-solid-orange .dropdown-menu li.selected > a:focus,
+.laadform-solid-orange .dropdown-menu li.active > a.highlighted:focus,
+.laadform-solid-orange .dropdown-menu li.selected > a.highlighted:focus {
+  border-color: #ff0099;
+}
+.laadform-solid-orange .dropdown-arrow {
+  border-bottom: 8px solid #ff0099;
+}
+.laadform-solid-orange .dropdown-menu {
+  border: 2px solid #ff0099;
+}
+
+/* datepicker */
+.datepicker {
+  border: 2px solid #ff0099;
+}
+.datepicker:before {
+  border-bottom: 7px solid #ff0099;
+}
+.datepicker td.active,
+.datepicker td.active:hover,
+.datepicker td.active:hover:hover,
+.datepicker td.active:focus,
+.datepicker td.active:hover:focus,
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td.active.disabled,
+.datepicker td.active:hover.disabled,
+.datepicker td.active[disabled],
+.datepicker td.active:hover[disabled],
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td span.active,
+.datepicker td span.active:hover,
+.datepicker td span.active:focus,
+.datepicker td span.active:active,
+.datepicker td span.active.active,
+.datepicker td span.active.disabled,
+.datepicker td span.active[disabled]{
+  color: #ffffff;
+  background-image: none;
+  background-color: #ff0099;
+}
+
+/* .laadform-solid-orange color scheme begin end *//*
+
+bootstrap
+
+*/

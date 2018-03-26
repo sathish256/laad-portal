@@ -1,0 +1,74 @@
+
+/* .laadform-solid-orange color scheme begin */
+/*
+    first:  #78A848;    default
+    second: #5E8439;    darker x2
+    third:  #9EC577;    lighter x3
+*/
+
+/* custom style BEGIN */
+input[type=text]:focus, select:focus, option:focus{
+  border: 2px solid #78A848 !important;
+  /*background-color: rgba(120, 168, 72, 0.2);*/
+  background-color: #F7FAF4;
+
+}
+/* custom style end */
+
+/* Accordion Colors Based on the Color Changes Selection */
+.accordion-section-title {
+	background: #78A848;
+}
+.accordion-section-title.active, .accordion-section-title:hover {
+	background: #9EC577;
+}
+.hdr {
+background: #78A848;
+}
+.icos .fa:hover {
+    color:  #78A848;
+}
+#Loan_Section h3 {
+    background: #78A848;
+}
+.laadform-solid-orange input[type=button]:focus,
+.laadform-solid-orange input[type=button]:active,
+.laadform-solid-orange input[type=button]:hover,
+.laadform-solid-orange input[type=button][disabled] {
+  border-color: #78A848;
+}
+.laadform-solid-orange div.title{
+  background-color: #78A848;
+  border-top: 1px solid #9EC577;
+  border-bottom: 5px solid #5E8439;
+}
+
+.laadform-solid-orange input[type=submit], .laadform-solid-orange input[type=button], .laadform-solid-orange input[type=reset]{
+  background-color: #78A848;
+}
+
+.laadform-solid-orange input[type=submit]:hover, .laadform-solid-orange input[type=button]:hover, .laadform-solid-orange input[type=reset]:hover{
+  background-color: #9EC577;
+}
+.laadform-solid-orange input[type=submit]:active, .laadform-solid-orange input[type=button]:active, .laadform-solid-orange input[type=reset]:active{
+  background-color: #5E8439;
+}
+/* File input */
+.laadform-solid-orange .element-file .button {
+  background-color: #78A848;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #9EC577;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #9EC577;
+}
+.laadform-solid-orange .element-file .button:hover {
+  background-color: #9EC577;
+}
+.laadform-solid-orange .element-file .button:active {
+  background-color: #5E8439;
+}
+.laadform-solid-orange .element-file label:active .file_text{
+  border-color: #78A848;
+}

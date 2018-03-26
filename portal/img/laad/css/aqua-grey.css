@@ -1,0 +1,72 @@
+
+/* .laadform-solid-orange color scheme begin */
+/*
+    first:  #669999;    default
+    second: #527A7A;    darker x2
+    third:  #94B8B8;    lighter x3
+*/
+
+/* custom style BEGIN */
+input[type=text]:focus, select:focus, option:focus{
+  border: 2px solid #669999 !important;
+  background-color: rgba(102, 153, 153, 0.2);
+}
+/* custom style end */
+
+/* Accordion Colors Based on the Color Changes Selection */
+.accordion-section-title {
+	background: #669999;
+}
+.accordion-section-title.active, .accordion-section-title:hover {
+	background: #94B8B8;
+}
+.hdr {
+background: #669999;
+}
+.icos .fa:hover {
+    color:  #669999;
+}
+#Loan_Section h3 {
+    background: #669999;
+}
+.laadform-solid-orange input[type=button]:focus,
+.laadform-solid-orange input[type=button]:active,
+.laadform-solid-orange input[type=button]:hover,
+.laadform-solid-orange input[type=button][disabled] {
+  border-color: #669999;
+}
+.laadform-solid-orange div.title{
+  background-color: #669999;
+  border-top: 1px solid #94B8B8;
+  border-bottom: 5px solid #527A7A;
+}
+
+.laadform-solid-orange input[type=submit], .laadform-solid-orange input[type=button], .laadform-solid-orange input[type=reset]{
+  background-color: #669999;
+}
+
+.laadform-solid-orange input[type=submit]:hover, .laadform-solid-orange input[type=button]:hover, .laadform-solid-orange input[type=reset]:hover{
+  background-color: #94B8B8;
+}
+.laadform-solid-orange input[type=submit]:active, .laadform-solid-orange input[type=button]:active, .laadform-solid-orange input[type=reset]:active{
+  background-color: #527A7A;
+}
+/* File input */
+.laadform-solid-orange .element-file .button {
+  background-color: #669999;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #94B8B8;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #94B8B8;
+}
+.laadform-solid-orange .element-file .button:hover {
+  background-color: #94B8B8;
+}
+.laadform-solid-orange .element-file .button:active {
+  background-color: #527A7A;
+}
+.laadform-solid-orange .element-file label:active .file_text{
+  border-color: #669999;
+}

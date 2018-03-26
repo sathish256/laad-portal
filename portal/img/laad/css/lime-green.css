@@ -1,0 +1,82 @@
+
+/* .laadform-solid-orange color scheme begin */
+/*
+    first:  #cccc33;    default
+    second: #A3A329;    darker x2
+    third:  #DBDB70;    lighter x3
+*/
+
+/* custom style BEGIN */
+input[type=text]:focus, select:focus, option:focus{
+  border: 2px solid #cccc33 !important;
+  /*background-color: rgba(204, 204, 51, 0.2);*/
+  background-color: #F4F4D7;
+}
+.laadform-solid-orange h2{
+  color:#000;
+}
+
+.laadform-solid-orange input[type=reset], .laadform-solid-orange input[type=button], .laadform-solid-orange input[type=submit]{
+  color:#000;
+}
+/* custom style end */
+
+/* Accordion Colors Based on the Color Changes Selection */
+.accordion-section-title {
+	background: #cccc33;
+	text-shadow: 0px 1px 0px #fff;
+	color: #000;
+}
+.accordion-section-title.active, .accordion-section-title:hover {
+	background: #DBDB70;
+}
+.hdr {
+background: #cccc33;
+}
+.icos .fa:hover {
+    color:  #cccc33;
+}
+#Loan_Section h3 {
+    background: #cccc33;
+}
+.laadform-solid-orange input[type=button]:focus,
+.laadform-solid-orange input[type=button]:active,
+.laadform-solid-orange input[type=button]:hover,
+.laadform-solid-orange input[type=button][disabled] {
+  border-color: #cccc33;
+}
+.laadform-solid-orange div.title{
+  background-color: #cccc33;
+  border-top: 1px solid #DBDB70;
+  border-bottom: 5px solid #A3A329;
+}
+
+.laadform-solid-orange input[type=submit], .laadform-solid-orange input[type=button], .laadform-solid-orange input[type=reset]{
+  background-color: #cccc33;
+}
+
+.laadform-solid-orange input[type=submit]:hover, .laadform-solid-orange input[type=button]:hover, .laadform-solid-orange input[type=reset]:hover{
+  background-color: #DBDB70;
+}
+.laadform-solid-orange input[type=submit]:active, .laadform-solid-orange input[type=button]:active, .laadform-solid-orange input[type=reset]:active{
+  background-color: #A3A329;
+}
+/* File input */
+.laadform-solid-orange .element-file .button {
+  background-color: #cccc33;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #DBDB70;
+}
+.laadform-solid-orange .element-file label:hover .file_text{
+  border-color: #DBDB70;
+}
+.laadform-solid-orange .element-file .button:hover {
+  background-color: #DBDB70;
+}
+.laadform-solid-orange .element-file .button:active {
+  background-color: #A3A329;
+}
+.laadform-solid-orange .element-file label:active .file_text{
+  border-color: #cccc33;
+}
